@@ -1,0 +1,8 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#F1F5F9"/>
+  <circle cx="200" cy="160" r="70" fill="#E2E8F0"/>
+  <ellipse cx="200" cy="340" rx="100" ry="60" fill="#E2E8F0"/>
+  <circle cx="200" cy="160" r="25" fill="#1152DF" fill-opacity="0.1"/>
+  <path d="M190 160L200 170L215 150" stroke="#1152DF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="200" y="380" text-anchor="middle" font-family="Inter, system-ui" font-size="14" fill="#94A3B8">Team Member Photo</text>
+</svg>

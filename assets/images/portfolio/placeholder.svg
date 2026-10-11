@@ -1,0 +1,8 @@
+<svg viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" fill="#F1F5F9"/>
+  <rect x="20" y="20" width="600" height="320" rx="8" fill="white" stroke="#E2E8F0"/>
+  <circle cx="320" cy="150" r="40" fill="#1152DF" fill-opacity="0.1"/>
+  <path d="M300 150L315 165L340 135" stroke="#1152DF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="320" y="230" text-anchor="middle" font-family="Inter, system-ui" font-size="18" fill="#64748B" font-weight="500">Project Thumbnail</text>
+  <text x="320" y="260" text-anchor="middle" font-family="Inter, system-ui" font-size="14" fill="#94A3B8">640 × 360</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="480" fill="#FFFFFF"/>
+  <ellipse cx="320" cy="240" rx="140" ry="90" fill="none" stroke="#1152DF" stroke-width="3" stroke-dasharray="15,10"/>
+  <ellipse cx="320" cy="240" rx="120" ry="70" fill="url(#gradPV)"/>
+  <rect x="280" y="180" width="80" height="120" rx="12" fill="#1152DF" fill-opacity="0.3"/>
+  <text x="320" y="360" text-anchor="middle" font-family="Inter, system-ui" font-size="20" fill="#1E293B" font-weight="700">Product 360° View</text>
+  <rect x="60" y="400" width="160" height="50" rx="8" fill="#1152DF" fill-opacity="0.2"/>
+  <rect x="240" y="400" width="160" height="50" rx="8" fill="#3B82F6" fill-opacity="0.2"/>
+  <rect x="420" y="400" width="160" height="50" rx="8" fill="#10B981" fill-opacity="0.2"/>
+  <text x="140" y="432" text-anchor="middle" font-family="Inter, system-ui" font-size="12" fill="#1152DF" font-weight="600">Hero Shots</text>
+  <text x="320" y="432" text-anchor="middle" font-family="Inter, system-ui" font-size="12" fill="#3B82F6" font-weight="600">Feature Demos</text>
+  <text x="500" y="432" text-anchor="middle" font-family="Inter, system-ui" font-size="12" fill="#10B981" font-weight="600">Lifestyle</text>
+  <defs>
+    <linearGradient id="gradPV" x1="0" y1="0" x2="640" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+  </defs>
+</svg>

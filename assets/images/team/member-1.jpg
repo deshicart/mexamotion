@@ -1,0 +1,14 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="url(#gradM1)"/>
+  <circle cx="200" cy="160" r="80" fill="white" fill-opacity="0.15"/>
+  <text x="200" y="280" text-anchor="middle" font-family="Inter, system-ui" font-size="24" fill="white" font-weight="700">Ahmed Rahman</text>
+  <text x="200" y="310" text-anchor="middle" font-family="Inter, system-ui" font-size="16" fill="rgba(255,255,255,0.8)">Founder & Creative Director</text>
+  <circle cx="200" cy="160" r="35" fill="white" fill-opacity="0.2"/>
+  <path d="M185 160L195 170L215 150" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <defs>
+    <linearGradient id="gradM1" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1152DF"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+</svg>

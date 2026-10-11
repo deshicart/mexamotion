@@ -1,0 +1,12 @@
+<svg viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="480" fill="#0F172A"/>
+  <rect x="40" y="40" width="560" height="400" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="1" stroke-opacity="0.3"/>
+  <rect x="60" y="60" width="200" height="120" rx="8" fill="#1152DF" fill-opacity="0.2"/>
+  <rect x="280" y="60" width="200" height="120" rx="8" fill="#10B981" fill-opacity="0.2"/>
+  <rect x="500" y="60" width="80" height="120" rx="8" fill="#F59E0B" fill-opacity="0.2"/>
+  <rect x="60" y="200" width="520" height="160" rx="8" fill="#1152DF" fill-opacity="0.1" stroke="#3B82F6" stroke-dasharray="10,5"/>
+  <circle cx="320" cy="280" r="50" fill="#3B82F6" fill-opacity="0.2"/>
+  <path d="M300 270L315 285L335 260" stroke="#3B82F6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="320" y="380" text-anchor="middle" font-family="Inter, system-ui" font-size="24" fill="white" font-weight="700">Mexa Motion Studio</text>
+  <text x="320" y="410" text-anchor="middle" font-family="Inter, system-ui" font-size="16" fill="rgba(255,255,255,0.7)">Dhaka, Bangladesh</text>
+</svg>

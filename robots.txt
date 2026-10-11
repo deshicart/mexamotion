@@ -1,0 +1,14 @@
+# Mexa Motion - Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mexamotion.com/sitemap.xml
+
+# Disallow admin/private areas
+Disallow: /includes/
+Disallow: /send-mail.php
+Disallow: /*.php$
+
+# Crawl-delay (optional)
+Crawl-delay: 10
