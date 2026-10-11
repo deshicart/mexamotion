@@ -1,0 +1,13 @@
+# Mexa Motion — robots.txt
+# https://mexamotion.com
+
+User-agent: *
+Allow: /
+
+# Server-side handlers have no value in a search index.
+Disallow: /process-inquiry.php
+Disallow: /404.php
+Disallow: /includes/
+Disallow: /tools/
+
+Sitemap: https://mexamotion.com/sitemap.xml

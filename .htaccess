@@ -1,0 +1,71 @@
+# ==========================================================================
+# Mexa Motion — Apache configuration
+# Adjust or remove any directive your host does not support. Nothing here is
+# required for the site to work; it improves security, caching and routing.
+# ==========================================================================
+
+# ---------------------------------------------------------------- Default host
+DirectoryIndex index.php index.html
+
+# ---------------------------------------------------------------- Error pages
+ErrorDocument 404 /404.php
+
+# ---------------------------------------------------------------- HTTPS
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Force HTTPS in production (leave disabled while testing on localhost).
+    # RewriteCond %{HTTPS} !=on
+    # RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+    # Canonical host (with and without www).
+    # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    # RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+</IfModule>
+
+# ---------------------------------------------------------------- Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Never expose raw source of server-side files.
+<FilesMatch "\.(md|log|ini|sql|json|lock)$">
+    Require all denied
+</FilesMatch>
+
+# ---------------------------------------------------------------- Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+    AddOutputFilterByType DEFLATE application/json image/svg+xml application/xml
+</IfModule>
+
+# ---------------------------------------------------------------- Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css                 "access plus 1 year"
+    ExpiresByType application/javascript   "access plus 1 year"
+    ExpiresByType image/png                "access plus 1 year"
+    ExpiresByType image/jpeg               "access plus 1 year"
+    ExpiresByType image/webp               "access plus 1 year"
+    ExpiresByType image/svg+xml            "access plus 1 year"
+    ExpiresByType image/x-icon             "access plus 1 year"
+    ExpiresByType font/woff2               "access plus 1 year"
+    ExpiresByType text/html                "access plus 0 seconds"
+</IfModule>
+
+# ---------------------------------------------------------------- MIME types
+<IfModule mod_mime.c>
+    AddType image/svg+xml                  .svg
+    AddType image/webp                     .webp
+    AddType image/avif                     .avif
+    AddType application/ld+json            .jsonld
+</IfModule>
+
+# ---------------------------------------------------------------- Options
+Options -Indexes
+DirectoryIndex index.php
