@@ -1,6 +1,6 @@
 <?php
 /**
- * Homepage hero section.
+ * Homepage hero section — Redlab Studio inspired character-led design.
  *
  * @package MexaMotion
  */
@@ -9,7 +9,7 @@ if (!defined('MM_ABSPATH')) {
     require_once __DIR__ . '/functions.php';
 }
 ?>
-<section class="hero">
+<section class="hero hero--home" aria-labelledby="hero-title">
     <div class="hero__backdrop" aria-hidden="true">
         <span class="hero__glow hero__glow--a"></span>
         <span class="hero__glow hero__glow--b"></span>
@@ -18,13 +18,13 @@ if (!defined('MM_ABSPATH')) {
 
     <div class="container hero__inner">
 
-        <div class="hero__copy">
+        <div class="hero__copy" data-reveal="hero-copy">
             <p class="eyebrow">
                 <span class="eyebrow__dot" aria-hidden="true"></span>
                 Creative Content Studio
             </p>
 
-            <h1 class="hero__title">
+            <h1 class="hero__title" id="hero-title">
                 Everything Your Brand Needs to
                 <span class="text-gradient">Create Better Content</span>
             </h1>
@@ -56,91 +56,90 @@ if (!defined('MM_ABSPATH')) {
             </ul>
         </div>
 
-        <div class="hero__visual" aria-hidden="true">
+        <div class="hero__visual" aria-hidden="true" data-reveal="hero-visual">
 
-            <div class="hero__frame">
-                <svg class="hero__art" viewBox="0 0 560 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
-                    <defs>
-                        <linearGradient id="heroRibbon" x1="40" y1="20" x2="520" y2="400" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#3B82F6"/>
-                            <stop offset="55%" stop-color="#1152DF"/>
-                            <stop offset="100%" stop-color="#0B1220" stop-opacity="0.15"/>
-                        </linearGradient>
-                        <linearGradient id="heroGlow" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.55"/>
-                            <stop offset="100%" stop-color="#1152DF" stop-opacity="0"/>
-                        </linearGradient>
-                        <clipPath id="heroClip"><rect width="560" height="420" rx="28"/></clipPath>
-                    </defs>
+            <!-- Character illustration (centerpiece) -->
+            <div class="hero__character-wrap">
+                <img class="hero__character"
+                     src="<?= e(mm_config('brand.hero_character') ?? 'assets/images/brand/hero-character.svg') ?>"
+                     alt=""
+                     width="480" height="520"
+                     loading="eager"
+                     decoding="async"
+                     fetchpriority="high">
 
-                    <g clip-path="url(#heroClip)">
-                        <rect width="560" height="420" fill="#0B1220"/>
-                        <ellipse cx="150" cy="70" rx="260" ry="200" fill="url(#heroGlow)"/>
+                <!-- Floating software/service icons -->
+                <div class="hero__floaters" aria-hidden="true">
+                    <!-- After Effects -->
+                    <figure class="hero__floater hero__floater--ae" style="--floater-x: -15%; --floater-y: -10%; --delay: 0ms;">
+                        <img src="assets/images/icons/icon-ae.svg" alt="" width="64" height="64" loading="lazy" decoding="async">
+                        <figcaption class="sr-only">After Effects — Motion Graphics</figcaption>
+                    </figure>
 
-                        <!-- fine grid -->
-                        <g stroke="#FFFFFF" stroke-opacity="0.05">
-                            <?php for ($x = 40; $x < 560; $x += 40) : ?>
-                            <line x1="<?= $x ?>" y1="0" x2="<?= $x ?>" y2="420"/>
-                            <?php endfor; ?>
-                            <?php for ($y = 40; $y < 420; $y += 40) : ?>
-                            <line x1="0" y1="<?= $y ?>" x2="560" y2="<?= $y ?>"/>
-                            <?php endfor; ?>
-                        </g>
+                    <!-- Premiere Pro -->
+                    <figure class="hero__floater hero__floater--pr" style="--floater-x: 110%; --floater-y: -5%; --delay: 150ms;">
+                        <img src="assets/images/icons/icon-pr.svg" alt="" width="64" height="64" loading="lazy" decoding="async">
+                        <figcaption class="sr-only">Premiere Pro — Video Editing</figcaption>
+                    </figure>
 
-                        <!-- motion ribbon -->
-                        <path class="hero__ribbon" d="M-20 330 C 120 330, 120 110, 280 110 C 420 110, 420 300, 580 250"
-                              stroke="url(#heroRibbon)" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.9"/>
-                        <path d="M-20 366 C 130 366, 130 160, 280 160 C 420 160, 430 336, 580 288"
-                              stroke="#3B82F6" stroke-opacity="0.28" stroke-width="2" stroke-linecap="round" fill="none"/>
+                    <!-- Photoshop -->
+                    <figure class="hero__floater hero__floater--ps" style="--floater-x: 115%; --floater-y: 45%; --delay: 300ms;">
+                        <img src="assets/images/icons/icon-ps.svg" alt="" width="64" height="64" loading="lazy" decoding="async">
+                        <figcaption class="sr-only">Photoshop — Thumbnail Design</figcaption>
+                    </figure>
 
-                        <!-- orbit rings -->
-                        <circle cx="300" cy="210" r="118" stroke="#FFFFFF" stroke-opacity="0.08"/>
-                        <circle cx="300" cy="210" r="76" stroke="#3B82F6" stroke-opacity="0.35" stroke-dasharray="3 9"/>
+                    <!-- DaVinci Resolve -->
+                    <figure class="hero__floater hero__floater--dv" style="--floater-x: -10%; --floater-y: 105%; --delay: 450ms;">
+                        <img src="assets/images/icons/icon-davinci.svg" alt="" width="64" height="64" loading="lazy" decoding="async">
+                        <figcaption class="sr-only">DaVinci Resolve — Color & Editing</figcaption>
+                    </figure>
 
-                        <!-- keyframe diamonds -->
-                        <g class="hero__keys" stroke="#8FC0FF" stroke-width="2" fill="#0B1220">
-                            <path d="M92 150 l8 8 -8 8 -8-8z"/>
-                            <path d="M470 250 l8 8 -8 8 -8-8z"/>
-                            <path d="M380 84 l7 7 -7 7 -7-7z"/>
-                        </g>
+                    <!-- YouTube -->
+                    <figure class="hero__floater hero__floater--yt" style="--floater-x: 55%; --floater-y: 100%; --delay: 600ms;">
+                        <img src="assets/images/icons/icon-youtube.svg" alt="" width="64" height="64" loading="lazy" decoding="async">
+                        <figcaption class="sr-only">YouTube — Long & Short Form</figcaption>
+                    </figure>
 
-                        <!-- play mark -->
-                        <g class="hero__play-mark">
-                            <circle cx="300" cy="210" r="46" fill="#1152DF" fill-opacity="0.18" stroke="#5A9BFF" stroke-opacity="0.7"/>
-                            <path d="M288 190 L326 210 L288 230 Z" fill="#FFFFFF" fill-opacity="0.95"/>
-                        </g>
+                    <!-- Reels/TikTok -->
+                    <figure class="hero__floater hero__floater--reels" style="--floater-x: -20%; --floater-y: 55%; --delay: 750ms;">
+                        <img src="assets/images/icons/icon-reels.svg" alt="" width="64" height="64" loading="lazy" decoding="async">
+                        <figcaption class="sr-only">Reels & TikTok — Short Form Ads</figcaption>
+                    </figure>
 
-                        <!-- waveform -->
-                        <g class="hero__wave" fill="#3B82F6">
-                            <?php
-                            $mm_bars = [10, 20, 34, 16, 44, 28, 52, 22, 38, 14, 46, 30, 18, 40, 26, 12, 34, 20];
-                            foreach ($mm_bars as $mm_i => $mm_h) :
-                            ?>
-                            <rect x="<?= 40 + $mm_i * 27 ?>" y="<?= 384 - $mm_h ?>" width="10" height="<?= $mm_h ?>" rx="5" fill-opacity="<?= 0.35 + ($mm_i % 3) * 0.2 ?>"/>
-                            <?php endforeach; ?>
-                        </g>
-                    </g>
-                </svg>
+                    <!-- Product/Camera -->
+                    <figure class="hero__floater hero__floater--cam" style="--floater-x: 100%; --floater-y: 65%; --delay: 900ms;">
+                        <img src="assets/images/icons/icon-camera.svg" alt="" width="64" height="64" loading="lazy" decoding="async">
+                        <figcaption class="sr-only">Product Videos — Showcase</figcaption>
+                    </figure>
 
-                <div class="hero__frame-label">
-                    <span class="hero__frame-tag">Creative Studio</span>
-                    <span class="hero__frame-sub">Edit · Animate · Design</span>
+                    <!-- Decorative accent particles -->
+                    <div class="hero__particles" aria-hidden="true">
+                        <span style="--p-x: 5%; --p-y: 15%; --p-size: 8px; --p-color: #3B82F6; --p-delay: 0s;"></span>
+                        <span style="--p-x: 95%; --p-y: 8%; --p-size: 6px; --p-color: #F5A524; --p-delay: 0.5s;"></span>
+                        <span style="--p-x: 2%; --p-y: 50%; --p-size: 5px; --p-color: #60A5FA; --p-delay: 1s;"></span>
+                        <span style="--p-x: 98%; --p-y: 55%; --p-size: 7px; --p-color: #3B82F6; --p-delay: 1.5s;"></span>
+                        <span style="--p-x: 15%; --p-y: 92%; --p-size: 6px; --p-color: #F5A524; --p-delay: 2s;"></span>
+                        <span style="--p-x: 85%; --p-y: 88%; --p-size: 5px; --p-color: #60A5FA; --p-delay: 2.5s;"></span>
+                        <span style="--p-x: 45%; --p-y: 2%; --p-size: 10px; --p-color: #1152DF; --p-delay: 0.8s;"></span>
+                        <span style="--p-x: 70%; --p-y: 98%; --p-size: 4px; --p-color: #F5A524; --p-delay: 3s;"></span>
+                    </div>
                 </div>
             </div>
 
-            <div class="hero__chip hero__chip--a">
-                <?= mm_icon('video-editing', 16) ?>
-                <span>Video Editing</span>
-            </div>
-
-            <div class="hero__chip hero__chip--b">
-                <?= mm_icon('motion-graphics', 16) ?>
-                <span>Motion Graphics</span>
-            </div>
-
-            <div class="hero__chip hero__chip--c">
-                <?= mm_icon('thumbnail', 16) ?>
-                <span>Thumbnails</span>
+            <!-- Trust indicators below character -->
+            <div class="hero__trust" data-reveal="hero-trust">
+                <div class="hero__trust-item">
+                    <span class="hero__trust-icon" aria-hidden="true"><?= mm_icon('check', 18) ?></span>
+                    <span>7 Specialized Services</span>
+                </div>
+                <div class="hero__trust-item">
+                    <span class="hero__trust-icon" aria-hidden="true"><?= mm_icon('clock', 18) ?></span>
+                    <span>Fast Turnaround</span>
+                </div>
+                <div class="hero__trust-item">
+                    <span class="hero__trust-icon" aria-hidden="true"><?= mm_icon('chat', 18) ?></span>
+                    <span>Collaborative Process</span>
+                </div>
             </div>
         </div>
 

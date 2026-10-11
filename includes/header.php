@@ -127,7 +127,6 @@ $mm_nav_class = static function ($key) use ($page_nav) {
                     aria-controls="mobile-nav"
                     aria-label="Open navigation menu">
                 <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
-                <span class="nav-toggle__label">Menu</span>
             </button>
         </div>
 
@@ -145,14 +144,16 @@ $mm_nav_class = static function ($key) use ($page_nav) {
             </div>
 
             <nav class="mobile-nav__links" aria-label="Mobile">
-                <ul>
+                <ul class="mobile-nav__list">
                     <?php foreach ($mm_nav_items as $i => $item) : ?>
-                    <li style="--i:<?= (int) $i ?>">
+                    <li class="mobile-nav__item" style="--i:<?= (int) $i ?>">
                         <a href="<?= e($item['href']) ?>"
                            class="mobile-nav__link<?= $item['key'] === $page_nav ? ' is-active' : '' ?>"
                            <?= $item['key'] === $page_nav ? 'aria-current="page"' : '' ?>>
-                            <span><?= e($item['label']) ?></span>
-                            <?= mm_icon('arrow-right', 18, 'mobile-nav__arrow') ?>
+                            <span class="mobile-nav__link-label"><?= e($item['label']) ?></span>
+                            <span class="mobile-nav__link-icon" aria-hidden="true">
+                                <?= mm_icon('arrow-right', 18) ?>
+                            </span>
                         </a>
                     </li>
                     <?php endforeach; ?>

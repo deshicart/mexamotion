@@ -21,17 +21,18 @@ if (!function_exists('mm_config')) {
          * 1. BRAND
          * ---------------------------------------------------------------- */
         'brand' => [
-            'name'          => 'Mexa Motion',
-            'short_name'    => 'Mexa Motion',
-            'legal_name'    => 'Mexa Motion',
-            'tagline'       => 'Video Editing, Motion Graphics & Creative Content',
-            'description'   => 'Mexa Motion is a creative content studio producing video editing, motion graphics, thumbnails, brand videos and social content for brands and creators.',
-            'logo_mark'     => 'assets/images/brand/logo-rounded.png', // Square "M" mark (used in the service diagram)
-            'logo_lockup'   => 'assets/images/brand/logo-square.png',   // Full "MEXA MOTION" lockup (header / footer)
-            'logo_light'    => 'assets/images/brand/logo-white.svg',   // White variant for dark backgrounds
-            'favicon'       => 'assets/images/brand/favicon.png',
-            'apple_touch'   => 'assets/images/brand/logo-rounded.png',
-            'theme_color'   => '#1152DF',
+            'name'           => 'Mexa Motion',
+            'short_name'     => 'Mexa Motion',
+            'legal_name'     => 'Mexa Motion',
+            'tagline'        => 'Video Editing, Motion Graphics & Creative Content',
+            'description'    => 'Mexa Motion is a creative content studio producing video editing, motion graphics, thumbnails, brand videos and social content for brands and creators.',
+            'logo_mark'      => 'assets/images/brand/logo-rounded.png', // Square "M" mark (used in the service diagram)
+            'logo_lockup'    => 'assets/images/brand/logo-square.png',   // Full "MEXA MOTION" lockup (header / footer)
+            'logo_light'     => 'assets/images/brand/logo-white.svg',   // White variant for dark backgrounds
+            'hero_character' => 'assets/images/brand/hero-character.svg', // Homepage hero character illustration
+            'favicon'        => 'assets/images/brand/favicon.png',
+            'apple_touch'    => 'assets/images/brand/logo-rounded.png',
+            'theme_color'    => '#1152DF',
         ],
 
         /* ------------------------------------------------------------------

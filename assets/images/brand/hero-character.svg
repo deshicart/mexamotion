@@ -1,0 +1,167 @@
+<svg viewBox="0 0 480 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mexa Motion creative character - video editor working with motion graphics">
+  <defs>
+    <!-- Brand gradient -->
+    <linearGradient id="charBlue" x1="0" y1="0" x2="480" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1152DF"/>
+      <stop offset="50%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <linearGradient id="charBlueDark" x1="0" y1="0" x2="480" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0D43B4"/>
+      <stop offset="100%" stop-color="#1152DF"/>
+    </linearGradient>
+    <linearGradient id="charAccent" x1="0" y1="0" x2="480" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F5A524"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+    <linearGradient id="charSkin" x1="0" y1="0" x2="480" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="100%" stop-color="#FCD34D"/>
+    </linearGradient>
+    <linearGradient id="charHair" x1="0" y1="0" x2="480" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0B1220"/>
+      <stop offset="100%" stop-color="#1B2740"/>
+    </linearGradient>
+    <linearGradient id="charShirt" x1="0" y1="0" x2="480" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0B1220"/>
+      <stop offset="100%" stop-color="#121C30"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feOffset dx="0" dy="4"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="innerGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="screenGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#1152DF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Chair base -->
+  <g filter="url(#softShadow)">
+    <path d="M180 440 L160 500 L320 500 L300 440 Z" fill="#0B1220"/>
+    <ellipse cx="240" cy="500" rx="80" ry="12" fill="#0B1220" opacity="0.3"/>
+  </g>
+
+  <!-- Character body -->
+  <g transform="translate(40, 20)">
+    <!-- Torso/Shirt -->
+    <path d="M140 280 L120 380 Q120 420 160 420 L320 420 Q360 420 360 380 L340 280 Q340 260 300 260 L180 260 Q140 260 140 280 Z" fill="url(#charShirt)"/>
+    <path d="M160 280 L170 300 Q170 340 200 340 L280 340 Q310 340 310 300 L320 280" fill="none" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="1.5"/>
+
+    <!-- Neck -->
+    <path d="M200 260 L195 240 Q195 230 210 230 L270 230 Q285 230 285 240 L280 260" fill="url(#charSkin)"/>
+
+    <!-- Head -->
+    <ellipse cx="240" cy="175" rx="70" ry="85" fill="url(#charSkin)"/>
+
+    <!-- Hair -->
+    <path d="M170 230 Q140 220 130 180 Q120 140 150 110 Q180 80 240 70 Q300 80 330 110 Q360 140 350 180 Q340 220 310 230" fill="url(#charHair)"/>
+    <path d="M170 230 Q180 200 200 195 Q220 190 240 195 Q260 190 280 195 Q300 200 310 230" fill="#0B1220" opacity="0.3"/>
+
+    <!-- Ears -->
+    <ellipse cx="170" cy="180" rx="12" ry="18" fill="url(#charSkin)"/>
+    <ellipse cx="310" cy="180" rx="12" ry="18" fill="url(#charSkin)"/>
+
+    <!-- Face - Eyes -->
+    <ellipse cx="210" cy="165" rx="18" ry="22" fill="#FFFFFF"/>
+    <ellipse cx="210" cy="165" rx="9" ry="12" fill="#0B1220"/>
+    <ellipse cx="207" cy="160" rx="3" ry="3" fill="#FFFFFF"/>
+    <ellipse cx="213" cy="168" rx="2" ry="2" fill="#FFFFFF" opacity="0.5"/>
+
+    <ellipse cx="270" cy="165" rx="18" ry="22" fill="#FFFFFF"/>
+    <ellipse cx="270" cy="165" rx="9" ry="12" fill="#0B1220"/>
+    <ellipse cx="267" cy="160" rx="3" ry="3" fill="#FFFFFF"/>
+    <ellipse cx="273" cy="168" rx="2" ry="2" fill="#FFFFFF" opacity="0.5"/>
+
+    <!-- Eyebrows -->
+    <path d="M185 140 Q210 135 235 140" stroke="#0B1220" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M285 140 Q310 135 335 140" stroke="#0B1220" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+    <!-- Nose -->
+    <path d="M235 185 Q240 195 245 185" stroke="#FCD34D" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+
+    <!-- Mouth -->
+    <path d="M215 210 Q240 225 265 210" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Glasses frames (subtle, creative professional) -->
+    <ellipse cx="210" cy="165" rx="24" ry="26" fill="none" stroke="#0B1220" stroke-width="2.5" opacity="0.4"/>
+    <ellipse cx="270" cy="165" rx="24" ry="26" fill="none" stroke="#0B1220" stroke-width="2.5" opacity="0.4"/>
+    <path d="M234 165 L246 165" stroke="#0B1220" stroke-width="2.5" opacity="0.4"/>
+
+    <!-- Headphones -->
+    <path d="M155 180 Q130 160 130 120 Q130 80 155 70" fill="none" stroke="url(#charBlue)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M325 180 Q350 160 350 120 Q350 80 325 70" fill="none" stroke="url(#charBlue)" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="155" cy="70" r="18" fill="url(#charBlueDark)"/>
+    <circle cx="155" cy="70" r="10" fill="#0B1220"/>
+    <circle cx="325" cy="70" r="18" fill="url(#charBlueDark)"/>
+    <circle cx="325" cy="70" r="10" fill="#0B1220"/>
+    <!-- Headphone accent rings -->
+    <circle cx="155" cy="70" r="22" fill="none" stroke="#3B82F6" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="325" cy="70" r="22" fill="none" stroke="#3B82F6" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Arms -->
+    <!-- Left arm -->
+    <path d="M140 290 Q110 300 90 340 Q70 380 90 410" stroke="url(#charSkin)" stroke-width="32" stroke-linecap="round" fill="none"/>
+    <path d="M140 290 Q110 300 90 340 Q70 380 90 410" stroke="#0B1220" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.2"/>
+    <!-- Left hand -->
+    <ellipse cx="90" cy="410" rx="20" ry="16" fill="url(#charSkin)"/>
+
+    <!-- Right arm -->
+    <path d="M340 290 Q370 300 390 340 Q410 380 390 410" stroke="url(#charSkin)" stroke-width="32" stroke-linecap="round" fill="none"/>
+    <path d="M340 290 Q370 300 390 340 Q410 380 390 410" stroke="#0B1220" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.2"/>
+    <!-- Right hand -->
+    <ellipse cx="390" cy="410" rx="20" ry="16" fill="url(#charSkin)"/>
+
+    <!-- Stylus in right hand -->
+    <path d="M390 400 Q395 380 390 350 Q385 330 390 310" stroke="#F5A524" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <ellipse cx="390" cy="310" rx="4" ry="8" fill="#F97316"/>
+
+    <!-- Tablet/Screen in left hand area -->
+    <g transform="translate(40, 340)">
+      <rect x="0" y="0" width="100" height="70" rx="8" fill="#0B1220" stroke="#3B82F6" stroke-width="2"/>
+      <rect x="8" y="8" width="84" height="54" rx="4" fill="url(#screenGlow)"/>
+      <!-- Timeline on tablet -->
+      <g stroke="#3B82F6" stroke-width="2" stroke-linecap="round">
+        <line x1="15" y1="25" x2="85" y2="25" opacity="0.6"/>
+        <line x1="15" y1="45" x2="65" y2="45" opacity="0.8"/>
+        <line x1="15" y1="55" x2="50" y2="55" opacity="0.4"/>
+      </g>
+      <!-- Playhead -->
+      <polygon points="45,18 52,25 45,32" fill="#F5A524"/>
+    </g>
+
+    <!-- Creative particles around character -->
+    <g opacity="0.7">
+      <circle cx="100" cy="120" r="4" fill="#3B82F6">
+        <animate attributeName="cy" values="120;100;120" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0.2;0.7" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="380" cy="140" r="3" fill="#F5A524">
+        <animate attributeName="cy" values="140;120;140" dur="2.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="60" cy="200" r="3" fill="#60A5FA">
+        <animate attributeName="cx" values="60;40;60" dur="4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0.2;0.7" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="400" cy="220" r="2" fill="#3B82F6">
+        <animate attributeName="cy" values="220;200;220" dur="3.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.7;0.2;0.7" dur="3.5s" repeatCount="indefinite"/>
+      </circle>
+      <polygon points="240,50 244,60 254,60 246,66 248,76 240,70 232,76 234,66 226,60 236,60" fill="#F5A524" opacity="0.6">
+        <animateTransform attributeName="transform" type="rotate" values="0 240 60; 360 240 60" dur="8s" repeatCount="indefinite"/>
+      </polygon>
+    </g>
+  </g>
+</svg>
