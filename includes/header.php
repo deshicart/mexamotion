@@ -31,12 +31,12 @@ $mm_canon = mm_url(ltrim($mm_path, '/'));
 $mm_og    = !empty($page_meta['og']) ? $page_meta['og'] : mm_config('seo.og_image');
 
 $mm_nav_items = [
-    ['key' => 'home',      'label' => 'Home',      'href' => 'index.php'],
-    ['key' => 'services',  'label' => 'Services',  'href' => 'services.php'],
-    ['key' => 'portfolio', 'label' => 'Portfolio', 'href' => 'portfolio.php'],
-    ['key' => 'reviews',   'label' => 'Reviews',   'href' => 'reviews.php'],
-    ['key' => 'about',     'label' => 'About',     'href' => 'about.php'],
-    ['key' => 'team',      'label' => 'Our Team',  'href' => 'team.php'],
+    ['key' => 'home',      'label' => 'Home',      'href' => 'index.php',      'icon' => 'home'],
+    ['key' => 'services',  'label' => 'Services',  'href' => 'services.php',   'icon' => 'layers'],
+    ['key' => 'portfolio', 'label' => 'Portfolio', 'href' => 'portfolio.php',  'icon' => 'eye'],
+    ['key' => 'reviews',   'label' => 'Reviews',   'href' => 'reviews.php',    'icon' => 'star'],
+    ['key' => 'about',     'label' => 'About',     'href' => 'about.php',      'icon' => 'spark'],
+    ['key' => 'team',      'label' => 'Our Team',  'href' => 'team.php',       'icon' => 'user'],
 ];
 
 $mm_nav = static function ($key) use ($page_nav) {
@@ -131,44 +131,55 @@ $mm_nav_class = static function ($key) use ($page_nav) {
         </div>
 
     </div>
-
-    <!-- Mobile navigation drawer -->
-    <div class="mobile-nav" id="mobile-nav" data-mobile-nav hidden>
-        <div class="mobile-nav__panel" role="dialog" aria-modal="true" aria-label="Site navigation">
-            <div class="mobile-nav__head">
-                <img class="mobile-nav__logo" src="<?= e(mm_config('brand.logo_lockup')) ?>"
-                     alt="<?= e(mm_config('brand.name')) ?>" width="150" height="124" loading="lazy" decoding="async">
-                <button class="mobile-nav__close" type="button" data-nav-close aria-label="Close navigation menu">
-                    <?= mm_icon('close', 22) ?>
-                </button>
-            </div>
-
-            <nav class="mobile-nav__links" aria-label="Mobile">
-                <ul class="mobile-nav__list">
-                    <?php foreach ($mm_nav_items as $i => $item) : ?>
-                    <li class="mobile-nav__item" style="--i:<?= (int) $i ?>">
-                        <a href="<?= e($item['href']) ?>"
-                           class="mobile-nav__link<?= $item['key'] === $page_nav ? ' is-active' : '' ?>"
-                           <?= $item['key'] === $page_nav ? 'aria-current="page"' : '' ?>>
-                            <span class="mobile-nav__link-label"><?= e($item['label']) ?></span>
-                            <span class="mobile-nav__link-icon" aria-hidden="true">
-                                <?= mm_icon('arrow-right', 18) ?>
-                            </span>
-                        </a>
-                    </li>
-                    <?php endforeach; ?>
-                </ul>
-            </nav>
-
-            <div class="mobile-nav__foot">
-                <a class="btn btn--primary btn--block" href="book-now.php">Book Now</a>
-                <a class="mobile-nav__contact" href="tel:<?= e(preg_replace('/\D+/', '', mm_config('contact.whatsapp'))) ?>">
-                    <?= mm_icon('phone', 16) ?> <?= e(mm_config('contact.whatsapp_label')) ?>
-                </a>
-            </div>
-        </div>
-        <button class="mobile-nav__scrim" type="button" data-nav-close tabindex="-1" aria-hidden="true"></button>
-    </div>
 </header>
+
+<?php
+/*
+ * The mobile drawer is intentionally a sibling of <header>, not a child.
+ * .site-header uses backdrop-filter, which turns it into the containing block
+ * for position:fixed descendants — that trapped the drawer inside the 72px
+ * header band and clipped every link. As a direct child of <body> the drawer
+ * resolves against the viewport again.
+ */
+?>
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav hidden>
+    <div class="mobile-nav__panel" role="dialog" aria-modal="true" aria-label="Site navigation">
+        <div class="mobile-nav__head">
+            <img class="mobile-nav__logo" src="<?= e(mm_config('brand.logo_lockup')) ?>"
+                 alt="<?= e(mm_config('brand.name')) ?>" width="150" height="124" loading="lazy" decoding="async">
+            <button class="mobile-nav__close" type="button" data-nav-close aria-label="Close navigation menu">
+                <?= mm_icon('close', 22) ?>
+            </button>
+        </div>
+
+        <nav class="mobile-nav__links" aria-label="Mobile">
+            <ul class="mobile-nav__list">
+                <?php foreach ($mm_nav_items as $i => $item) : ?>
+                <li class="mobile-nav__item" style="--i:<?= (int) $i ?>">
+                    <a href="<?= e($item['href']) ?>"
+                       class="mobile-nav__link<?= $item['key'] === $page_nav ? ' is-active' : '' ?>"
+                       <?= $item['key'] === $page_nav ? 'aria-current="page"' : '' ?>>
+                        <span class="mobile-nav__link-icon" aria-hidden="true">
+                            <?= mm_icon($item['icon'], 20) ?>
+                        </span>
+                        <span class="mobile-nav__link-label"><?= e($item['label']) ?></span>
+                        <span class="mobile-nav__link-arrow" aria-hidden="true">
+                            <?= mm_icon('arrow-right', 18) ?>
+                        </span>
+                    </a>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+        </nav>
+
+        <div class="mobile-nav__foot">
+            <a class="btn btn--primary btn--block" href="book-now.php">Book Now</a>
+            <a class="mobile-nav__contact" href="tel:<?= e(preg_replace('/\D+/', '', mm_config('contact.whatsapp'))) ?>">
+                <?= mm_icon('phone', 16) ?> <?= e(mm_config('contact.whatsapp_label')) ?>
+            </a>
+        </div>
+    </div>
+    <button class="mobile-nav__scrim" type="button" data-nav-close tabindex="-1" aria-hidden="true"></button>
+</div>
 
 <main id="main">
