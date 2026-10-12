@@ -597,7 +597,43 @@
     }
 
     /* =====================================================================
-       10. Current year fallback
+       10. Portfolio Tabs (Home page Long/Short video grids)
+       ================================================================== */
+    function initPortfolioTabs() {
+        var tabs = $$('.portfolio-tab');
+        if (!tabs.length) { return; }
+
+        var panels = $$('.portfolio-panel');
+
+        function activate(tabName) {
+            tabs.forEach(function (tab) {
+                var isActive = tab.getAttribute('data-tab') === tabName;
+                tab.classList.toggle('is-active', isActive);
+                tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+
+            panels.forEach(function (panel) {
+                var isActive = panel.getAttribute('data-panel') === tabName;
+                panel.hidden = !isActive;
+                panel.classList.toggle('is-active', isActive);
+                if (isActive) {
+                    panel.removeAttribute('hidden');
+                } else {
+                    panel.setAttribute('hidden', '');
+                }
+            });
+        }
+
+        tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                var tabName = tab.getAttribute('data-tab');
+                if (tabName) { activate(tabName); }
+            });
+        });
+    }
+
+    /* =====================================================================
+       11. Current year fallback
        ================================================================== */
     function initYear() {
         $$('[data-year]').forEach(function (el) {
@@ -619,6 +655,7 @@
         initBookForm();
         initOptions();
         initYear();
+        initPortfolioTabs();
     }
 
     if (document.readyState === 'loading') {

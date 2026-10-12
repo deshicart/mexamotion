@@ -30,7 +30,7 @@ $mm_connector_paths = [
 <section class="section section--dark diagram-section" id="services" aria-labelledby="diagram-title">
     <div class="container">
 
-        <header class="section-head section-head--center section-head--light">
+        <header class="section-head section-head--center">
             <p class="eyebrow">
                 <span class="eyebrow__dot" aria-hidden="true"></span>
                 What We Do
