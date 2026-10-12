@@ -78,7 +78,7 @@ $mm_hero_tools = [
 
         <!-- ── Copy ──────────────────────────────────────────────────── -->
         <div class="hero__copy">
-            <p class="eyebrow eyebrow--light">
+            <p class="eyebrow">
                 <span class="eyebrow__dot" aria-hidden="true"></span>
                 Creative Content Studio
             </p>
@@ -97,7 +97,7 @@ $mm_hero_tools = [
                 <a class="btn btn--primary btn--lg" href="book-now.php">
                     Book Now <?= mm_icon('arrow-right', 18) ?>
                 </a>
-                <a class="btn btn--ghost-light btn--lg" href="services.php">Explore Our Services</a>
+                <a class="btn btn--ghost btn--lg" href="services.php">Explore Our Services</a>
             </div>
 
             <p class="hero__note">
