@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mexa Motion — Creative Content Studio | Video Editing, Motion Graphics &amp; More</title>
+<meta name="description" content="Mexa Motion is a creative content studio for video editing, motion graphics, thumbnails, brand videos, YouTube content, social ads and product videos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='13' fill='%231152DF'/%3E%3Cpath d='M11 33V15l8.5 10L28 15v18' stroke='%23fff' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M33 21l8 4.2-8 4.2z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   MEXA MOTION — Creative Content Studio
+   Single-file build: styles + scripts inline for portability
+   ============================================================ */
+:root{
+  --logo-url: url('https://i.ibb.co.com/zVbFtwKS/logo-rounded.png');
+  --blue:#1152DF;
+  --blue-600:#0E44BC;
+  --blue-700:#0B3699;
+  --blue-glow:rgba(17,82,223,.14);
+  --navy:#0B1220;
+  --ink:#101828;
+  --muted:#667085;
+  --bg:#FFFFFF;
+  --bg-soft:#F5F7FB;
+  --blue-50:#EEF4FF;
+  --blue-100:#DCE8FD;
+  --line:#E4E9F2;
+  --shadow-lg:0 24px 48px -18px rgba(11,18,32,.16);
+  --shadow-sm:0 10px 24px -12px rgba(11,18,32,.14);
+  --r-lg:22px;
+  --ease:cubic-bezier(.22,.68,.32,1);
+  --header-h:76px;
+  --font-d:'Space Grotesk',system-ui,sans-serif;
+  --font-b:'Inter',system-ui,sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+body{
+  font-family:var(--font-b);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  font-size:16.5px;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
+::selection{background:var(--blue);color:#fff}
+:focus-visible{outline:2.5px solid var(--blue);outline-offset:3px;border-radius:6px}
+
+.container{width:min(1200px,100% - 40px);margin-inline:auto}
+.section{padding:clamp(76px,9vw,120px) 0;position:relative}
+
+/* ---------- skip link ---------- */
+.skip-link{position:fixed;top:-60px;left:16px;z-index:200;background:var(--navy);color:#fff;padding:10px 18px;border-radius:10px;transition:top .25s}
+.skip-link:focus{top:14px}
+
+/* ---------- progress bar ---------- */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:110;pointer-events:none}
+.progress i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--blue),#5F8BFF);transform-origin:0 50%;transform:scaleX(0)}
+
+/* ---------- shared type / labels ---------- */
+.s-label{display:inline-flex;align-items:center;gap:12px;font:600 12.5px/1 var(--font-d);letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
+.s-label::before{content:"";width:34px;height:2px;background:var(--blue);border-radius:2px}
+.s-title{font:700 clamp(1.95rem,3.6vw,2.9rem)/1.12 var(--font-d);letter-spacing:-.02em;margin:18px 0 14px}
+.s-sub{color:var(--muted);max-width:56ch;font-size:clamp(.98rem,1.3vw,1.08rem)}
+.center{text-align:center}
+.center .s-sub{margin-inline:auto}
+.center .s-label::after{content:"";width:34px;height:2px;background:var(--blue);border-radius:2px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 15px/1 var(--font-b);padding:16px 26px;border-radius:999px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s,color .3s;white-space:nowrap}
+.btn svg{width:17px;height:17px;transition:transform .3s var(--ease)}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 14px 26px -12px rgba(17,82,223,.55)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--blue-600);box-shadow:0 20px 34px -12px rgba(17,82,223,.6)}
+.btn-primary:hover svg{transform:translateX(3px)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);box-shadow:0 6px 16px -10px rgba(11,18,32,.12)}
+.btn-ghost:hover{transform:translateY(-2px);border-color:var(--blue);color:var(--blue)}
+.btn-white{background:#fff;color:var(--navy)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 18px 30px -12px rgba(255,255,255,.35)}
+.btn-outline-w{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+.btn-outline-w:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-2px)}
+
+/* ============ HEADER ============ */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,box-shadow .35s,border-color .35s;border-bottom:1px solid transparent}
+.site-header.scrolled{background:rgba(255,255,255,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line);box-shadow:0 8px 24px -16px rgba(11,18,32,.15)}
+.header-in{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:inline-flex;align-items:center;gap:11px;font:700 21px/1 var(--font-d);letter-spacing:-.01em;color:var(--navy)}
+.logo .mark{width:40px;height:40px;flex:none;filter:drop-shadow(0 8px 14px rgba(17,82,223,.35));transition:transform .35s var(--ease)}
+.logo:hover .mark{transform:rotate(-6deg) scale(1.06)}
+.logo em{font-style:normal;color:var(--blue)}
+.logo .dot{width:5px;height:5px;border-radius:50%;background:var(--blue);margin-left:-6px}
+
+/* Logo as protected background image on anchor */
+.logo-protect{
+  display:inline-block;
+  width:40px;
+  height:40px;
+  background-image:var(--logo-url);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  border-radius:12px;
+  user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+  pointer-events:none;
+}
+.logo-protect:hover{
+  transform:rotate(-6deg) scale(1.06);
+  transition:transform .35s var(--ease);
+}
+
+/* Additional protection for logo anchors */
+.logo[oncontextmenu]{
+  user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+}
+.logo[oncontextmenu] .logo-protect{
+  pointer-events:none;
+}
+.main-nav{display:flex;align-items:center;gap:4px}
+.main-nav a{position:relative;font:550 14.5px/1 var(--font-b);color:var(--ink);padding:10px 13px;border-radius:10px;transition:color .25s,background .25s}
+.main-nav a::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;border-radius:2px;background:var(--blue);transform:scaleX(0);transform-origin:0 50%;transition:transform .3s var(--ease)}
+.main-nav a:hover,.main-nav a.active{color:var(--blue)}
+.main-nav a:hover::after,.main-nav a.active::after{transform:scaleX(1)}
+.header-cta{display:flex;align-items:center;gap:12px}
+.header-cta .btn{padding:13px 22px}
+#menu-btn{display:none;width:46px;height:46px;border-radius:12px;border:1.5px solid var(--line);background:#fff;place-items:center;transition:border-color .25s}
+#menu-btn:hover{border-color:var(--blue)}
+#menu-btn svg{width:22px;height:22px}
+#menu-btn .ic-close{display:none}
+#menu-btn[aria-expanded="true"] .ic-open{display:none}
+#menu-btn[aria-expanded="true"] .ic-close{display:block}
+
+/* mobile nav panel */
+.mobile-nav{position:fixed;left:0;right:0;top:var(--header-h);z-index:99;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);box-shadow:0 30px 50px -20px rgba(11,18,32,.25);padding:18px 20px 26px;display:none;flex-direction:column;gap:10px;transform:translateY(-8px);opacity:0;transition:transform .35s var(--ease),opacity .3s}
+.mobile-nav.open{display:flex;transform:none;opacity:1}
+.mobile-nav{max-height:calc(100vh - var(--header-h));max-height:calc(100dvh - var(--header-h));overflow-y:auto;-webkit-overflow-scrolling:touch}
+[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
+.pf-meta .t{display:block;font:600 16.5px/1.3 var(--font-d)}
+.pf-grid.short .pf-meta .t{font-size:14px}
+.mobile-nav a{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bg-soft);border:1.5px solid var(--line);border-radius:14px;padding:15px 18px;font:600 15.5px var(--font-d);color:var(--ink);transition:border-color .25s,color .25s,background .25s}
+.mobile-nav a svg{width:16px;height:16px;color:var(--muted)}
+.mobile-nav a:hover,.mobile-nav a:active{border-color:var(--blue);color:var(--blue);background:var(--blue-50)}
+.mobile-nav .btn{width:100%;margin-top:6px}
+
+/* ============ HERO ============ */
+.hero{position:relative;padding:calc(var(--header-h) + clamp(52px,8vh,100px)) 0 clamp(64px,7vw,100px);background:linear-gradient(180deg,#FAFCFF 0%,#fff 100%);overflow:clip}
+.hero::before{content:"";position:absolute;top:-260px;right:-180px;width:680px;height:680px;border-radius:50%;background:radial-gradient(circle at 40% 40%,rgba(17,82,223,.04) 0%,transparent 68%)}
+.hero::after{content:"";position:absolute;left:-30px;bottom:10%;width:220px;height:220px;background-image:radial-gradient(rgba(17,82,223,.08) 1.4px,transparent 1.4px);background-size:22px 22px;opacity:.45;mask-image:radial-gradient(circle at 30% 60%,#000 30%,transparent 72%)}
+.hero .container{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center}
+.hero-copy{max-width:740px}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);padding:9px 16px;border-radius:999px;font:600 12px/1 var(--font-d);letter-spacing:.2em;color:var(--blue)}
+.hero-badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--blue);position:relative}
+.hero-badge .pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--blue);opacity:.5;animation:pulse 2.2s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.5);opacity:.7}80%,100%{transform:scale(1.35);opacity:0}}
+.hero h1{font:700 clamp(2.55rem,5.2vw,4.35rem)/1.05 var(--font-d);letter-spacing:-.025em;margin:26px 0 20px;color:var(--navy)}
+.hero h1 .hl{position:relative;color:var(--blue);white-space:nowrap}
+.hero h1 .hl svg{position:absolute;left:0;right:0;bottom:-.14em;width:100%;height:.3em;overflow:visible}
+.hero h1 .hl svg path{stroke:var(--blue);stroke-width:7;fill:none;stroke-linecap:round;opacity:.85;stroke-dasharray:520;stroke-dashoffset:520;animation:draw 1.4s .6s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero-sub{color:var(--muted);font-size:clamp(1rem,1.4vw,1.13rem);max-width:54ch;margin:0 auto 36px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:38px;justify-content:center}
+.hero-trust{display:flex;align-items:center;gap:14px;justify-content:center}
+.trust-avatars{display:flex}
+.trust-avatars span{width:38px;height:38px;border-radius:50%;border:2.5px solid #fff;display:grid;place-items:center;font:700 12px var(--font-d);color:#fff;margin-left:-9px;box-shadow:var(--shadow-sm)}
+.trust-avatars span:first-child{margin-left:0}
+.hero-trust p{font-size:13.5px;color:var(--muted);max-width:30ch;line-height:1.45}
+.hero-trust b{color:var(--ink)}
+
+/* ---------- hero (no character — centered layout) ---------- */
+@keyframes bob{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-12px) rotate(var(--rot,0deg))}}
+
+/* ============ MARQUEE ============ */
+.marquee-wrap{overflow:hidden;padding:6px 0 20px;margin-top:-8px}
+.marquee{background:var(--blue);transform:rotate(-1.4deg);width:104%;margin-left:-2%;box-shadow:0 20px 40px -20px rgba(17,82,223,.5)}
+.marquee-track{display:flex;align-items:center;gap:0;width:max-content;animation:scrollX 30s linear infinite;padding:17px 0}
+.marquee-track .mi{display:flex;align-items:center;gap:26px;padding:0 13px;color:#fff;font:600 15px/1 var(--font-d);letter-spacing:.14em;white-space:nowrap}
+.marquee-track .mi svg{width:15px;height:15px;opacity:.85}
+@keyframes scrollX{to{transform:translateX(-50%)}}
+
+/* ============ SECTION SHELL EXTRAS ============ */
+.ghost-num{position:absolute;top:18px;right:22px;font:700 44px/1 var(--font-d);color:var(--blue-100);-webkit-text-stroke:1px var(--blue-100);user-select:none}
+
+/* reduced-motion + small helpers */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .85s var(--ease),transform .85s var(--ease);transition-delay:var(--rd,0ms)}
+[data-reveal].in{opacity:1;transform:none}
+/* ============ ORBIT SERVICE MAP ============ */
+.services-sec{background:#fff}
+.orbit-stage{position:relative;min-height:690px;margin-top:44px}
+.orbit-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.orbit-svg path{fill:none;stroke:var(--blue);stroke-width:1.6;opacity:.3;stroke-linecap:round}
+.orbit-svg circle.dot{fill:var(--blue);opacity:.55}
+.orbit-svg .halo{fill:none;stroke:#C9D7F6;stroke-width:1.4;stroke-dasharray:3 9;opacity:.8}
+.orbit-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;width:min(252px,60vw);background:linear-gradient(160deg,#fff 40%,var(--blue-50));border:1.5px solid var(--blue-100);border-radius:26px;box-shadow:0 30px 60px -24px rgba(17,82,223,.4);padding:28px 22px;text-align:center}
+.orbit-center .mark{width:64px;height:64px;margin:0 auto 12px;filter:drop-shadow(0 10px 16px rgba(17,82,223,.4))}
+.orbit-center h3{font:700 21px var(--font-d);color:var(--navy);letter-spacing:-.01em}
+.orbit-center p{font:500 12px var(--font-d);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.orbit-center::after{content:"";position:absolute;inset:-9px;border:1.5px dashed #B9CBEF;border-radius:32px;animation:spinSlow 26s linear infinite;pointer-events:none}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.orbit-card{position:absolute;z-index:2;width:222px;transform:translate(-50%,-50%);background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:16px 17px;box-shadow:0 14px 28px -16px rgba(11,18,32,.14);transition:box-shadow .35s var(--ease),border-color .35s;display:block}
+.orbit-card-in{transition:transform .35s var(--ease)}
+.orbit-card:hover{border-color:var(--blue);box-shadow:0 24px 44px -18px rgba(17,82,223,.35)}
+.orbit-card:hover .orbit-card-in{transform:translateY(-4px)}
+.oc-top{display:flex;align-items:center;gap:11px;margin-bottom:9px}
+.oc-ic{width:40px;height:40px;flex:none;border-radius:12px;background:var(--blue-50);display:grid;place-items:center;color:var(--blue)}
+.oc-ic svg{width:20px;height:20px}
+.orbit-card h4{font:600 15px/1.25 var(--font-d);color:var(--navy)}
+.orbit-card p{font-size:12.5px;color:var(--muted);line-height:1.5}
+.oc-go{position:absolute;top:14px;right:14px;width:22px;height:22px;border-radius:8px;background:var(--blue-50);color:var(--blue);display:grid;place-items:center;opacity:0;transform:translate(-4px,4px);transition:.3s var(--ease)}
+.oc-go svg{width:12px;height:12px}
+.orbit-card:hover .oc-go{opacity:1;transform:none}
+
+/* ============ VALUE BAND ============ */
+.value-band{background:#fff;color:var(--ink);overflow:clip;position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.value-band::before{content:"";position:absolute;top:-180px;left:-140px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(17,82,223,.04),transparent 65%)}
+.value-band::after{content:"";position:absolute;bottom:-220px;right:-120px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(17,82,223,.03),transparent 65%)}
+.value-in{position:relative;z-index:2;display:grid;grid-template-columns:auto 1fr;gap:clamp(26px,5vw,64px);align-items:start}
+.value-quote-mark{width:clamp(64px,8vw,104px);height:auto;color:var(--blue);flex:none;opacity:.55}
+.value-band blockquote{font:600 clamp(1.5rem,3.1vw,2.5rem)/1.28 var(--font-d);letter-spacing:-.015em;max-width:22ch;color:var(--navy)}
+.value-band blockquote em{font-style:normal;color:var(--blue)}
+.value-band figcaption{margin-top:26px;display:flex;align-items:center;gap:14px;color:var(--muted);font-size:14.5px}
+.value-band figcaption i{width:44px;height:2px;background:var(--blue);border-radius:2px;font-style:normal}
+.value-band figcaption b{color:var(--ink);font-weight:600}
+
+/* ============ FEATURED SERVICES ============ */
+.feat-sec{background:#fff}
+.feat-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:52px}
+.feat-card{position:relative;background:#fff;border:1.5px solid var(--line);border-radius:var(--r-lg);padding:28px 26px 24px;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s;overflow:hidden;display:flex;flex-direction:column;min-height:216px}
+.feat-card::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 200px at 85% -10%,var(--blue-glow),transparent 70%);opacity:0;transition:opacity .4s}
+.feat-card:hover{transform:translateY(-6px);border-color:rgba(17,82,223,.4);box-shadow:var(--shadow-lg)}
+.feat-card:hover::before{opacity:1}
+.feat-card:nth-child(1),.feat-card:nth-child(2){grid-column:span 6}
+.feat-card:nth-child(3),.feat-card:nth-child(4),.feat-card:nth-child(5){grid-column:span 4}
+.feat-card:nth-child(6),.feat-card:nth-child(7){grid-column:span 6}
+.fc-ic{width:52px;height:52px;border-radius:15px;background:var(--blue);color:#fff;display:grid;place-items:center;box-shadow:0 12px 20px -10px rgba(17,82,223,.6);margin-bottom:18px}
+.fc-ic svg{width:24px;height:24px}
+.feat-card h3{font:600 19px var(--font-d);letter-spacing:-.01em;color:var(--navy);margin-bottom:9px}
+.feat-card p{font-size:14px;color:var(--muted);line-height:1.62;flex:1}
+.fc-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font:600 13.5px var(--font-b);color:var(--blue)}
+.fc-link svg{width:15px;height:15px;transition:transform .3s var(--ease)}
+.feat-card:hover .fc-link svg{transform:translateX(4px)}
+.fc-num{position:absolute;top:20px;right:22px;font:700 15px var(--font-d);color:#C0CEEE;letter-spacing:.08em}
+
+/* ============ PORTFOLIO ============ */
+.work-sec{background:#fff}
+.pf-tabs{display:flex;justify-content:center;margin:42px 0 40px}
+.tab-shell{position:relative;display:inline-flex;background:var(--bg-soft);border:1.5px solid var(--line);border-radius:999px;padding:6px;gap:4px}
+.pf-tab{position:relative;z-index:2;display:inline-flex;align-items:center;gap:9px;font:600 14.5px var(--font-d);color:var(--muted);padding:12px 24px;border-radius:999px;transition:color .3s}
+.pf-tab svg{width:16px;height:16px}
+.pf-tab[aria-selected="true"]{color:#fff;background:var(--blue);box-shadow:0 10px 20px -8px rgba(17,82,223,.55)}
+.pf-panel[hidden]{display:none}
+.pf-grid{display:grid;gap:22px}
+.pf-grid.long{grid-template-columns:repeat(2,1fr)}
+.pf-grid.short{grid-template-columns:repeat(4,1fr)}
+.pf-card{position:relative;border-radius:20px;overflow:hidden;background:var(--navy);border:1px solid var(--line);cursor:pointer;text-align:left;padding:0;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.pf-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.pf-card.long{aspect-ratio:16/9}
+.pf-card.short{aspect-ratio:9/16}
+.pf-card img.poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease),opacity .4s}
+.pf-card:hover img.poster{transform:scale(1.06)}
+.pf-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,32,0) 42%,rgba(11,18,32,.78));z-index:2}
+.pf-play{position:absolute;inset:0;z-index:3;display:grid;place-items:center}
+.pf-play i{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;color:var(--blue);box-shadow:0 14px 30px -8px rgba(0,0,0,.45);transition:transform .35s var(--ease),background .3s}
+.pf-card:hover .pf-play i{transform:scale(1.12);background:#fff}
+.pf-play svg{width:22px;height:22px;margin-left:2px}
+.pf-grid.short .pf-play i{width:48px;height:48px}
+.pf-meta{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:16px 18px;color:#fff;text-align:left}
+.pf-meta .tag{display:inline-block;font:600 10.5px/1 var(--font-d);letter-spacing:.14em;text-transform:uppercase;background:rgba(17,82,223,.92);padding:6px 10px;border-radius:8px;margin-bottom:9px}
+.pf-meta h3{font:600 16.5px/1.3 var(--font-d)}
+.pf-meta p{font-size:12.5px;color:#C6D2E8;margin-top:4px;line-height:1.45}
+.pf-grid.short .pf-meta{padding:12px 14px}
+.pf-grid.short .pf-meta h3{font-size:14px}
+.pf-grid.short .pf-meta p{display:none}
+.pf-dur{position:absolute;top:12px;right:12px;z-index:4;font:600 11px var(--font-d);background:rgba(11,18,32,.72);color:#fff;padding:5px 10px;border-radius:8px;backdrop-filter:blur(4px)}
+.pf-card::after{content:"";position:absolute;inset:0;border-radius:20px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);pointer-events:none;z-index:5}
+.pf-playing iframe,.pf-playing video{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:6;background:#000}
+.pf-note{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:30px;color:var(--muted);font-size:13px}
+.pf-note svg{width:15px;height:15px;color:var(--blue);flex:none}
+.pf-footer{display:flex;justify-content:center;margin-top:34px}
+
+/* ============ WHY CHOOSE ============ */
+.why-sec{background:#fff;overflow:clip}
+.why-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,90px);align-items:start}
+.why-left{position:sticky;top:calc(var(--header-h) + 30px)}
+.why-list{display:flex;flex-direction:column}
+.why-item{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:26px 4px;border-bottom:1.5px solid var(--line);transition:padding .35s var(--ease),background .35s;border-radius:14px}
+.why-item:first-child{border-top:1.5px solid var(--line)}
+.why-item:hover{background:#fff;padding-left:16px;padding-right:16px}
+.why-item .wnum{font:700 13px var(--font-d);color:var(--blue);letter-spacing:.1em;padding-top:5px}
+.why-item h3{font:600 17.5px var(--font-d);color:var(--navy);display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.why-item h3 svg{width:18px;height:18px;color:var(--blue);flex:none}
+.why-item p{font-size:14px;color:var(--muted);line-height:1.6}
+.why-quote{margin-top:30px;background:#fff;border:1.5px solid var(--blue-100);border-left:4px solid var(--blue);border-radius:16px;padding:20px 22px;font:500 15px/1.6 var(--font-d);color:var(--ink);box-shadow:var(--shadow-sm)}
+.why-quote span{display:block;margin-top:8px;font:600 12px var(--font-b);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* ============ PROCESS ============ */
+.process-sec{background:#fff}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px;counter-reset:step;position:relative}
+.steps::before{content:"";position:absolute;top:34px;left:11%;right:11%;border-top:2px dashed #B9CBEF;z-index:0}
+.step{position:relative;z-index:1;text-align:center;padding:0 8px}
+.step .sn{width:68px;height:68px;margin:0 auto 20px;border-radius:50%;background:#fff;border:2px solid var(--blue-100);color:var(--blue);display:grid;place-items:center;font:700 20px var(--font-d);box-shadow:0 12px 24px -12px rgba(17,82,223,.35);transition:background .35s,color .35s,transform .35s var(--ease)}
+.step:hover .sn{background:var(--blue);color:#fff;transform:translateY(-4px)}
+.step h3{font:600 17px var(--font-d);color:var(--navy);margin-bottom:8px}
+.step p{font-size:13.5px;color:var(--muted);line-height:1.6;max-width:26ch;margin-inline:auto}
+
+/* ============ REVIEWS ============ */
+.reviews-sec{background:linear-gradient(180deg,#FAFCFF 0%,#fff 100%);color:var(--ink);overflow:clip;position:relative;border-top:1px solid var(--line)}
+.reviews-sec::before{content:"";position:absolute;top:-200px;right:-160px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(17,82,223,.03),transparent 65%)}
+.reviews-sec .s-label{color:var(--blue)}
+.reviews-sec .s-label::before{background:var(--blue)}
+.reviews-sec .s-title{color:var(--navy)}
+.slider{position:relative;max-width:820px;margin:52px auto 0}
+.slides{display:flex;transition:transform .65s var(--ease)}
+.slide{flex:0 0 100%;padding:8px}
+.review-card{background:#fff;border:1.5px solid var(--line);border-radius:26px;padding:clamp(26px,4vw,44px);text-align:center;box-shadow:var(--shadow-sm)}
+.stars{display:flex;justify-content:center;gap:5px;margin-bottom:20px}
+.stars svg{width:17px;height:17px;color:#FFB020;fill:#FFB020}
+.review-card blockquote{font:500 clamp(1.05rem,1.8vw,1.3rem)/1.6 var(--font-d);color:var(--ink);max-width:52ch;margin-inline:auto}
+.rev-who{display:flex;align-items:center;justify-content:center;gap:13px;margin-top:26px}
+.rev-who .ava{width:46px;height:46px;border-radius:50%;background:linear-gradient(140deg,var(--blue),#5F8BFF);display:grid;place-items:center;font:700 15px var(--font-d);color:#fff}
+.rev-who .who-t{text-align:left}
+.rev-who b{display:block;font:600 14.5px var(--font-b);color:var(--navy)}
+.rev-who small{color:var(--muted);font-size:12.5px}
+.sample-tag{display:inline-block;margin-top:16px;font:600 10.5px var(--font-d);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px dashed var(--line);padding:5px 12px;border-radius:99px}
+.slider-ctrl{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:30px}
+.s-arrow{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);color:var(--ink);display:grid;place-items:center;transition:background .3s,border-color .3s,transform .3s var(--ease)}
+.s-arrow:hover{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-2px)}
+.s-arrow svg{width:19px;height:19px}
+.s-dots{display:flex;gap:8px}
+.s-dot{width:9px;height:9px;border-radius:99px;background:var(--line);transition:width .35s var(--ease),background .3s;padding:0}
+.s-dot[aria-current="true"]{width:26px;background:var(--blue)}
+
+/* ============ TEAM ============ */
+.team-sec{background:linear-gradient(180deg,#FAFCFF 0%,#fff 100%);overflow:clip}
+.team-head{max-width:560px;margin-inline:auto}
+.tm-founder-wrap{margin-top:46px}
+.tm-card{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:16px 16px 20px;text-align:center;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+.tm-card:hover{transform:translateY(-5px);border-color:rgba(17,82,223,.35);box-shadow:0 18px 36px -18px rgba(17,82,223,.28)}
+/* ── founder horizontal layout ── */
+.tm-founder{display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,4vw,48px);align-items:center;text-align:left;padding:clamp(22px,3vw,36px);border-radius:26px;box-shadow:var(--shadow-sm);border:1.5px solid var(--line)}
+.tm-founder:hover{transform:none}
+.tm-img{position:relative;display:block;width:100%;aspect-ratio:1;border-radius:16px;overflow:hidden;background:linear-gradient(160deg,#EAF1FE,#D8E5FC);border:1px solid var(--blue-100)}
+.tm-founder .tm-img{width:clamp(180px,22vw,280px);aspect-ratio:4/4.6;border-radius:20px;flex:none}
+.tm-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.tm-init{position:absolute;inset:0;display:grid;place-items:center;font:700 34px var(--font-d);font-style:normal;color:#BDD1F3;letter-spacing:.08em}
+.tm-founder .tm-init{font-size:54px}
+.tm-tag{display:none;position:absolute;left:50%;bottom:12px;transform:translateX(-50%);font:600 9.5px var(--font-d);font-style:normal;letter-spacing:.18em;color:#829BCB;background:rgba(255,255,255,.85);padding:5px 11px;border-radius:99px;white-space:nowrap}
+.tm-img.noimg .tm-tag{display:block}
+.tm-name{font:700 17px/1.25 var(--font-d);color:var(--navy);margin-top:15px}
+.tm-founder .tm-name{font:700 clamp(22px,2.4vw,28px)/1.2 var(--font-d);color:var(--navy);margin-top:0}
+.tm-role{font:600 13px var(--font-b);color:var(--blue);margin-top:4px}
+.tm-founder .tm-role{font-size:14px;margin-top:6px}
+.tm-line{font-size:13.5px;line-height:1.55;color:var(--muted);margin-top:8px;max-width:36ch;margin-inline:auto}
+.tm-founder .tm-line{font-size:15px;line-height:1.65;margin:14px 0 0;max-width:44ch;margin-inline:0}
+.tm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:30px}
+@media (max-width:1024px){
+  .tm-grid{grid-template-columns:repeat(2,1fr);gap:18px;max-width:600px;margin-inline:auto;margin-top:26px}
+}
+@media (max-width:680px){
+  .tm-founder{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .tm-founder .tm-img{width:min(240px,70vw)}
+  .tm-founder .tm-line{margin-inline:auto}
+}
+@media (max-width:480px){
+  .tm-grid{grid-template-columns:1fr;max-width:320px}
+}
+/* (character removed — no character CSS needed) */
+
+/* ============ FINAL CTA ============ */
+.cta-sec{padding:clamp(60px,7vw,96px) 0}
+.cta-panel{position:relative;background:var(--navy);border-radius:34px;padding:clamp(52px,7vw,92px) clamp(28px,6vw,80px);text-align:center;overflow:hidden;color:#fff}
+.cta-panel::before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:720px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(17,82,223,.55),transparent 65%)}
+.cta-panel::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.3px,transparent 1.3px);background-size:26px 26px;mask-image:radial-gradient(720px 420px at 50% 0%,#000 10%,transparent 72%);pointer-events:none}
+.cta-panel > *{position:relative;z-index:2}
+.cta-kicker{display:inline-flex;align-items:center;gap:10px;font:600 12px var(--font-d);letter-spacing:.2em;text-transform:uppercase;color:#9EB8FF;background:rgba(17,82,223,.16);border:1px solid rgba(158,184,255,.28);padding:9px 18px;border-radius:99px;margin-bottom:24px}
+.cta-panel h2{font:700 clamp(1.9rem,4.4vw,3.4rem)/1.1 var(--font-d);letter-spacing:-.02em}
+.cta-panel .sub{color:#AEBEDD;max-width:48ch;margin:16px auto 34px;font-size:clamp(.98rem,1.4vw,1.1rem)}
+.cta-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+.cta-mini{position:absolute;width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;color:#7FA4FF;z-index:1;animation:bob 8s ease-in-out infinite}
+.cta-mini svg{width:24px;height:24px}
+
+/* ============ FOOTER ============ */
+.site-footer{background:#070D19;color:#93A3C4;font-size:14px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:44px;padding:clamp(56px,7vw,84px) 0 48px}
+.foot-brand .logo{color:#fff;margin-bottom:16px}
+.foot-brand p{max-width:34ch;line-height:1.7;font-size:13.5px}
+.foot-social{display:flex;gap:10px;margin-top:22px}
+.foot-social a{width:40px;height:40px;border-radius:12px;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;color:#B7C4DE;transition:.3s}
+.foot-social a:hover{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-3px)}
+.foot-social svg{width:17px;height:17px}
+.site-footer h4{font:600 13px var(--font-d);letter-spacing:.16em;text-transform:uppercase;color:#fff;margin-bottom:18px}
+.foot-links li{margin-bottom:11px}
+.foot-links a{color:#93A3C4;transition:color .25s,padding-left .25s}
+.foot-links a:hover{color:#fff;padding-left:5px}
+.foot-contact li{display:flex;gap:11px;align-items:flex-start;margin-bottom:13px;line-height:1.5}
+.foot-contact svg{width:16px;height:16px;color:var(--blue);flex:none;margin-top:3px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.09);padding:22px 0;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;font-size:13px}
+.foot-bottom a{color:#B7C4DE;transition:color .25s}
+.foot-bottom a:hover{color:#fff}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1100px){
+  .orbit-card{width:206px;padding:14px 15px}
+  .orbit-stage{min-height:660px}
+}
+@media (max-width:1024px){
+  .main-nav{display:none}
+  #menu-btn{display:grid}
+  .header-cta .btn{display:none}
+  .hero h1 .hl{white-space:normal}
+  .steps{grid-template-columns:repeat(2,1fr);gap:34px 18px}
+  .steps::before{display:none}
+  .why-grid{grid-template-columns:1fr}
+  .why-left{position:static}
+  .foot-top{grid-template-columns:1fr 1fr;gap:38px}
+  .pf-grid.short{grid-template-columns:repeat(2,1fr)}
+  .orbit-stage{min-height:0;display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:40px}
+  .orbit-svg,.orbit-center::after{display:none}
+  .orbit-center{position:static;transform:none;width:min(340px,100%);order:-1;margin-bottom:10px}
+  .orbit-card{position:static;transform:none;width:min(460px,100%)}
+  .oc-go{opacity:1;transform:none;background:var(--blue-50)}
+}
+@media (max-width:700px){
+  .feat-grid{grid-template-columns:1fr}
+  .feat-card{grid-column:span 1 !important;min-height:0}
+  .pf-grid.long{grid-template-columns:1fr}
+  .value-in{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:30px}
+  .foot-top{grid-template-columns:1fr}
+  .foot-bottom{justify-content:center;text-align:center}
+}
+@media (max-width:520px){
+  .hero{padding-top:calc(var(--header-h) + 30px)}
+  .hero-ctas .btn{width:100%;padding:17px 22px}
+  .pf-grid.short{grid-template-columns:repeat(2,1fr);gap:14px}
+  .slider-ctrl{gap:12px}
+  .cta-panel{border-radius:26px}
+}
+@media (max-width:380px){
+  .pf-grid.short{grid-template-columns:1fr 1fr;gap:12px}
+  .btn{padding:15px 20px}
+  .hero h1{font-size:2.15rem}
+}
+
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .float-tile,.float-chip,.cta-mini,.orbit-center::after{animation:none !important}
+  .marquee-track{animation:none;transform:none}
+  [data-reveal]{opacity:1;transform:none}
+  .hero h1 .hl svg path{stroke-dashoffset:0;animation:none}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-in">
+    <a class="logo" href="https://mexamotion.com" target="_blank" rel="noopener noreferrer" aria-label="Mexa Motion — Home" oncontextmenu="return false;" ondragstart="return false;" onmousedown="return false;" ontouchstart="return false;">
+      <span class="logo-protect" aria-hidden="true"></span>
+      <span>Mexa<em>Motion</em></span><i class="dot"></i>
+    </a>
+    <nav class="main-nav" aria-label="Primary navigation">
+      <a href="#home" data-link="home" class="active">Home</a>
+      <a href="#services" data-link="services">Services</a>
+      <a href="#work" data-link="portfolio">Portfolio</a>
+      <a href="#reviews" data-link="reviews">Reviews</a>
+      <a href="#about" data-link="about">About</a>
+      <a href="#team" data-link="team">Our Team</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#book" class="btn btn-primary" data-link="book">Book Now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+      <button id="menu-btn" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation menu">
+        <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+        <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#home" data-link="home">Home <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a href="#services" data-link="services">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a href="#work" data-link="portfolio">Portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a href="#reviews" data-link="reviews">Reviews <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a href="#about" data-link="about">About <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a href="#team" data-link="team">Our Team <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a href="#book" class="btn btn-primary" data-link="book">Book Now</a>
+  </nav>
+</header>
+
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-copy" data-reveal>
+      <span class="hero-badge"><i class="pulse"></i>CREATIVE CONTENT STUDIO</span>
+      <h1>Everything Your Brand Needs to Create <span class="hl">Better Content<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14 C 50 6, 150 4, 196 12"/></svg></span></h1>
+      <p class="hero-sub">Professional video editing, motion graphics and content solutions for creators, brands and businesses.</p>
+      <div class="hero-ctas">
+        <a href="#book" class="btn btn-primary" data-link="book">Book Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost" data-link="services">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="currentColor" stroke="none"/></svg>
+          Explore Our Services</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-avatars" aria-hidden="true">
+          <span style="background:linear-gradient(140deg,#1152DF,#5F8BFF)">MX</span>
+          <span style="background:linear-gradient(140deg,#0B1220,#33405E)">CB</span>
+          <span style="background:linear-gradient(140deg,#4C6FE0,#8FB0FF)">YT</span>
+          <span style="background:linear-gradient(140deg,#1750C8,#7FA4FF)">+ </span>
+        </div>
+        <p><b>Trusted by creators &amp; brands</b> across YouTube, TikTok, Twitch and Instagram.</p>
+      </div>
+    </div>
+
+    <!-- hero tool badges (compact row, no character) -->
+    <div class="hero-tools" data-reveal style="--rd:160ms">
+      <div class="ht-row">
+        <!-- tool icons rendered by JS -->
+      </div><!-- end ht-row --><SPLIT_MARKER>
+          <radialGradient id="wglow" cx="50%" cy="40%" r="55%"><stop offset="0%" stop-color="#7EC8FF" stop-opacity=".35"/><stop offset="100%" stop-color="#7EC8FF" stop-opacity="0"/></radialGradient>
+          <radialGradient id="crystal" cx="40%" cy="30%" r="60%"><stop offset="0%" stop-color="#AEEDFF"/><stop offset="60%" stop-color="#4CB8FF"/><stop offset="100%" stop-color="#1152DF"/></radialGradient>
+          <radialGradient id="orbGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#7EC8FF" stop-opacity=".8"/><stop offset="100%" stop-color="#1152DF" stop-opacity="0"/></radialGradient>
+          <linearGradient id="robe" x1="0" y1="0" x2=".2" y2="1"><stop offset="0%" stop-color="#1A2F6E"/><stop offset="35%" stop-color="#142258"/><stop offset="100%" stop-color="#0D1840"/></linearGradient>
+          <linearGradient id="robeLight" x1=".3" y1="0" x2=".7" y2="1"><stop offset="0%" stop-color="#2445A0"/><stop offset="100%" stop-color="#162C6E"/></linearGradient>
+          <linearGradient id="hatG" x1=".5" y1="0" x2=".5" y2="1"><stop offset="0%" stop-color="#1E3A80"/><stop offset="100%" stop-color="#0E1E50"/></linearGradient>
+          <linearGradient id="staffW" x1=".3" y1="0" x2=".7" y2="1"><stop offset="0%" stop-color="#7D5A30"/><stop offset="50%" stop-color="#5C3A1E"/><stop offset="100%" stop-color="#3D2510"/></linearGradient>
+          <filter id="eGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="iconGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="crystalGlow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+
+        <!-- ground shadow -->
+        <ellipse cx="290" cy="618" rx="170" ry="16" fill="#0B1220" fill-opacity=".07"/>
+
+        <!-- ── STAFF (behind body) ── -->
+        <g>
+          <!-- wooden staff -->
+          <path d="M390 290 C398 340 416 440 428 550" stroke="url(#staffW)" stroke-width="13" stroke-linecap="round" fill="none"/>
+          <path d="M392 300 C396 330 408 400 418 490" stroke="#8B6A3E" stroke-width="3" stroke-linecap="round" fill="none" opacity=".4"/>
+          <!-- staff knots -->
+          <ellipse cx="396" cy="340" rx="8" ry="5" fill="#4A3018" transform="rotate(-8 396 340)"/>
+          <ellipse cx="410" cy="430" rx="7" ry="5" fill="#4A3018" transform="rotate(-5 410 430)"/>
+          <!-- crystal on top -->
+          <circle cx="386" cy="272" r="24" fill="url(#orbGlow)" filter="url(#crystalGlow)"/>
+          <path d="M373 280 L386 248 L399 280 L393 290 L379 290Z" fill="url(#crystal)"/>
+          <path d="M379 276 L386 256 L390 276Z" fill="#fff" opacity=".45"/>
+          <circle cx="381" cy="264" r="2.5" fill="#fff" opacity=".8"/>
+          <!-- crystal energy wisps -->
+          <path d="M386 248 C392 230 405 224 414 230" stroke="#7EC8FF" stroke-width="2" stroke-linecap="round" fill="none" opacity=".7" filter="url(#eGlow)"/>
+          <path d="M399 260 C416 250 424 260 420 274" stroke="#7EC8FF" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5" filter="url(#eGlow)"/>
+          <circle cx="416" cy="228" r="2.5" fill="#7EC8FF" opacity=".6"/>
+          <circle cx="424" cy="272" r="2" fill="#7EC8FF" opacity=".5"/>
+        </g>
+
+        <!-- ── RIGHT ARM (staff arm, behind body) ── -->
+        <path d="M340 400 C365 375 378 330 388 296" stroke="url(#robe)" stroke-width="48" stroke-linecap="round" fill="none"/>
+        <path d="M340 400 C365 375 378 330 388 296" stroke="#1E3778" stroke-width="4" stroke-linecap="round" fill="none" opacity=".3"/>
+        <!-- right hand (gloved) -->
+        <path d="M378 284 C382 274 394 270 398 280 C402 290 396 300 388 302 C380 304 374 296 378 284Z" fill="#1A2D5E"/>
+        <path d="M382 280 C384 276 390 274 392 278" stroke="#253E80" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".5"/>
+
+        <!-- ── ROBE & BODY ── -->
+        <!-- back robe sweep -->
+        <path d="M180 620 C180 520 196 440 230 400 C250 376 272 368 290 366 C308 368 330 376 350 400 C384 440 400 520 400 620Z" fill="url(#robe)"/>
+        <!-- front robe panel -->
+        <path d="M220 620 L220 430 C220 410 246 388 290 386 C334 388 360 410 360 430 L360 620Z" fill="url(#robeLight)"/>
+        <!-- gold trim — center front -->
+        <path d="M288 392 L288 620" stroke="#C4982A" stroke-width="3"/>
+        <path d="M292 392 L292 620" stroke="#E8C44A" stroke-width="1.5" opacity=".6"/>
+        <!-- gold trim — bottom hem -->
+        <path d="M180 612 C210 608 360 608 400 612" stroke="#C4982A" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M184 616 C214 612 356 612 396 616" stroke="#E8C44A" stroke-width="1.5" fill="none" opacity=".5"/>
+        <!-- robe decorative patterns -->
+        <path d="M234 500 C240 480 248 490 244 510 C240 530 248 520 254 540" stroke="#2A4898" stroke-width="2" stroke-linecap="round" fill="none" opacity=".6"/>
+        <path d="M340 480 C334 500 342 510 336 530" stroke="#2A4898" stroke-width="2" stroke-linecap="round" fill="none" opacity=".5"/>
+        <!-- crescent moons on robe -->
+        <path d="M250 540 A8 8 0 0 1 250 556 A6 6 0 0 0 250 540Z" fill="#3A5CB8" opacity=".6"/>
+        <path d="M330 520 A8 8 0 0 1 330 536 A6 6 0 0 0 330 520Z" fill="#3A5CB8" opacity=".5"/>
+        <!-- robe sparkles -->
+        <circle cx="260" cy="470" r="1.6" fill="#7BAAFF" opacity=".7"/><circle cx="310" cy="500" r="1.3" fill="#7BAAFF" opacity=".5"/><circle cx="240" cy="560" r="1.4" fill="#7BAAFF" opacity=".6"/><circle cx="350" cy="570" r="1.5" fill="#7BAAFF" opacity=".5"/><circle cx="275" cy="520" r="1.2" fill="#AEEDFF" opacity=".5"/>
+        <!-- belt / sash -->
+        <path d="M240 430 C260 424 320 424 340 430 L338 444 C320 438 260 438 242 444Z" fill="#152C6A"/>
+        <path d="M242 434 C262 428 318 428 338 434" stroke="#C4982A" stroke-width="2.5" fill="none"/>
+        <!-- belt buckle gem -->
+        <rect x="280" y="428" width="18" height="12" rx="3" fill="#C4982A"/>
+        <rect x="283" y="431" width="12" height="6" rx="2" fill="#3CCECE"/>
+
+        <!-- ── BOOTS ── -->
+        <path d="M230 614 C230 596 248 588 260 596 L260 620 L220 620Z" fill="#101D46"/>
+        <path d="M350 614 C350 596 332 588 320 596 L320 620 L360 620Z" fill="#101D46"/>
+        <path d="M225 612 L260 612" stroke="#C4982A" stroke-width="2"/><path d="M320 612 L355 612" stroke="#C4982A" stroke-width="2"/>
+
+        <!-- ── LEFT ARM (magic arm, in front) ── -->
+        <path d="M230 400 C200 380 168 350 152 320" stroke="url(#robe)" stroke-width="46" stroke-linecap="round" fill="none"/>
+        <!-- gold trim on sleeve -->
+        <path d="M174 344 C168 332 162 324 155 316" stroke="#C4982A" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <!-- left hand (gloved, fingers spread for casting) -->
+        <g>
+          <path d="M140 308 C144 296 156 292 160 300 L158 316 C152 320 142 318 140 308Z" fill="#1A2D5E"/>
+          <path d="M148 296 C146 284 152 276 158 280 L158 296Z" fill="#1A2D5E"/>
+          <path d="M156 290 C156 278 162 272 166 278 L164 294Z" fill="#1A2D5E"/>
+          <path d="M164 290 C166 278 172 274 174 282 L168 296Z" fill="#1A2D5E"/>
+          <path d="M170 296 C174 286 180 284 180 292 L174 302Z" fill="#1A2D5E"/>
+          <!-- finger joints -->
+          <path d="M152 280 C154 278 156 278" stroke="#253E80" stroke-width="1" stroke-linecap="round" fill="none" opacity=".5"/>
+        </g>
+
+        <!-- ── MAGIC ENERGY from hand ── -->
+        <g filter="url(#eGlow)">
+          <!-- energy arcs around the hand -->
+          <path d="M148 304 C130 280 126 240 144 210" stroke="#4CB8FF" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".7">
+            <animate attributeName="opacity" values=".7;.3;.7" dur="2.5s" repeatCount="indefinite"/>
+          </path>
+          <path d="M138 310 C116 290 108 250 118 220 C122 208 134 200 148 200" stroke="#7EC8FF" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".5">
+            <animate attributeName="opacity" values=".5;.2;.5" dur="3s" repeatCount="indefinite"/>
+          </path>
+          <path d="M156 296 C140 270 148 234 156 218" stroke="#4CB8FF" stroke-width="2" stroke-linecap="round" fill="none" opacity=".6"/>
+          <!-- energy sparks -->
+          <circle cx="134" cy="252" r="2.5" fill="#7EC8FF" opacity=".7"><animate attributeName="r" values="2.5;1.5;2.5" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="124" cy="230" r="2" fill="#AEEDFF" opacity=".6"/>
+          <circle cx="146" cy="216" r="1.8" fill="#7EC8FF" opacity=".5"/>
+          <!-- swirl near hand -->
+          <path d="M142 290 C126 282 120 268 130 254 C140 240 154 244 148 258" stroke="#4CB8FF" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".5"/>
+        </g>
+
+        <!-- ── FLOATING MEDIA ICONS (conjured by wizard's left hand) ── -->
+        <g filter="url(#iconGlow)">
+          <!-- Camera icon -->
+          <g transform="translate(78,140)">
+            <rect x="-4" y="-4" width="56" height="48" rx="10" fill="#1152DF" opacity=".12"/>
+            <rect x="0" y="6" width="48" height="36" rx="6" fill="none" stroke="#4CB8FF" stroke-width="2.8"/>
+            <circle cx="24" cy="24" r="10" fill="none" stroke="#4CB8FF" stroke-width="2.5"/>
+            <circle cx="24" cy="24" r="4" fill="#4CB8FF" opacity=".5"/>
+            <rect x="16" y="2" width="16" height="8" rx="3" fill="none" stroke="#4CB8FF" stroke-width="2.2"/>
+          </g>
+
+          <!-- Play button icon -->
+          <g transform="translate(146,96)">
+            <circle cx="22" cy="22" r="24" fill="#1152DF" opacity=".12"/>
+            <circle cx="22" cy="22" r="20" fill="none" stroke="#4CB8FF" stroke-width="2.8"/>
+            <path d="M17 12 L32 22 L17 32Z" fill="#4CB8FF" opacity=".85"/>
+          </g>
+
+          <!-- Video player icon -->
+          <g transform="translate(60,202)">
+            <rect x="-2" y="-2" width="56" height="42" rx="6" fill="#1152DF" opacity=".12"/>
+            <rect x="0" y="0" width="52" height="38" rx="5" fill="none" stroke="#4CB8FF" stroke-width="2.6"/>
+            <path d="M4 10 L48 10" stroke="#4CB8FF" stroke-width="2" opacity=".5"/>
+            <path d="M19 17 L34 24 L19 31Z" fill="#4CB8FF" opacity=".8"/>
+          </g>
+
+          <!-- Star icon -->
+          <g transform="translate(138,192)">
+            <path d="M16 2 L19.5 12 L30 12 L21.5 18.5 L24.5 29 L16 22.5 L7.5 29 L10.5 18.5 L2 12 L12.5 12Z" fill="#4CB8FF" opacity=".75"/>
+          </g>
+        </g>
+
+        <!-- ── ELECTRIC ARCS on body ── -->
+        <g filter="url(#eGlow)">
+          <path d="M270 378 C252 360 240 340 244 314 C248 290 262 280 270 286" stroke="#4CB8FF" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".4"/>
+          <path d="M310 380 C328 362 336 342 332 322" stroke="#4CB8FF" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".35"/>
+          <!-- body energy sparks -->
+          <path d="M260 480 L254 470 L268 474 L262 460 L274 468" stroke="#4CB8FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".4"/>
+          <!-- arm energy -->
+          <path d="M196 374 C188 362 180 348 176 336" stroke="#4CB8FF" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".4"/>
+          <path d="M360 380 C370 368 380 348 382 330" stroke="#4CB8FF" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".35"/>
+        </g>
+
+        <!-- ── COLLAR / NECKLINE ── -->
+        <path d="M250 370 C260 360 280 354 290 354 C300 354 320 360 330 370" stroke="#C4982A" stroke-width="2.5" fill="none"/>
+        <path d="M256 374 C270 364 310 364 324 374" fill="#1A2D5E"/>
+
+        <!-- ── HEAD & FACE ── -->
+        <!-- neck (hidden behind beard mostly) -->
+        <ellipse cx="290" cy="340" rx="22" ry="12" fill="#D4976A"/>
+        <!-- face -->
+        <ellipse cx="290" cy="302" rx="42" ry="48" fill="#D4976A"/>
+        <!-- cheeks -->
+        <ellipse cx="264" cy="316" rx="12" ry="7" fill="#C48058" opacity=".35"/>
+        <ellipse cx="316" cy="316" rx="12" ry="7" fill="#C48058" opacity=".35"/>
+        <!-- nose -->
+        <path d="M290 300 C296 310 300 322 294 328 C288 334 282 328 286 318" fill="#C08060" opacity=".7"/>
+        <circle cx="290" cy="326" r="3.5" fill="#C08060" opacity=".5"/>
+        <!-- eyes -->
+        <ellipse cx="274" cy="296" rx="5.5" ry="4" fill="#1A2D5E"/>
+        <ellipse cx="306" cy="296" rx="5.5" ry="4" fill="#1A2D5E"/>
+        <circle cx="276" cy="295" r="1.5" fill="#fff" opacity=".7"/>
+        <circle cx="308" cy="295" r="1.5" fill="#fff" opacity=".7"/>
+        <!-- eyebrows -->
+        <path d="M262 284 C268 278 280 280 284 286" stroke="#8A8A8A" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M296 286 C300 280 312 278 318 284" stroke="#8A8A8A" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <!-- mouth (hidden behind beard) -->
+
+        <!-- ── BEARD (long, flowing white/grey) ── -->
+        <path d="M254 320 C252 334 248 356 244 380 C240 408 244 440 252 464 C260 488 280 496 290 498 C300 496 320 488 328 464 C336 440 340 408 336 380 C332 356 328 334 326 320 C320 326 306 332 290 332 C274 332 260 326 254 320Z" fill="#E8E4DC"/>
+        <path d="M264 330 C262 350 260 380 262 410 C264 440 274 470 284 486" stroke="#D0CCC4" stroke-width="2" stroke-linecap="round" fill="none" opacity=".5"/>
+        <path d="M316 330 C318 350 320 380 318 410 C316 440 306 470 296 486" stroke="#D0CCC4" stroke-width="2" stroke-linecap="round" fill="none" opacity=".5"/>
+        <path d="M276 338 C274 360 272 400 278 440" stroke="#F2EDE4" stroke-width="3" stroke-linecap="round" fill="none" opacity=".4"/>
+        <path d="M304 338 C306 360 308 400 302 440" stroke="#F2EDE4" stroke-width="3" stroke-linecap="round" fill="none" opacity=".4"/>
+        <!-- mustache -->
+        <path d="M270 322 C276 318 284 316 290 318 C296 316 304 318 310 322 C306 324 296 326 290 326 C284 326 274 324 270 322Z" fill="#D8D4CC"/>
+
+        <!-- ── WIZARD HAT ── -->
+        <!-- hat brim shadow -->
+        <ellipse cx="290" cy="272" rx="66" ry="18" fill="#0A1430" opacity=".4"/>
+        <!-- hat brim -->
+        <ellipse cx="290" cy="268" rx="64" ry="16" fill="url(#hatG)"/>
+        <path d="M226 268 C226 262 254 256 290 256 C326 256 354 262 354 268 C354 274 326 280 290 280 C254 280 226 274 226 268Z" fill="#1E3778" opacity=".6"/>
+        <!-- hat brim gold trim -->
+        <ellipse cx="290" cy="271" rx="63" ry="13" fill="none" stroke="#C4982A" stroke-width="2.5"/>
+        <!-- hat cone -->
+        <path d="M248 268 C250 240 258 200 268 170 C278 140 288 120 300 90 C306 76 298 66 290 68 C276 72 260 108 252 148 C244 188 240 240 242 268Z" fill="url(#hatG)"/>
+        <path d="M332 268 C330 240 322 200 314 172 C306 144 298 120 294 100 C291 88 290 72 290 68 C302 72 318 108 326 148 C334 188 336 240 338 268Z" fill="#162E6A"/>
+        <!-- hat decorative band -->
+        <path d="M250 256 C260 252 310 248 336 256" stroke="#C4982A" stroke-width="4" fill="none"/>
+        <path d="M252 260 C262 256 308 254 334 260" stroke="#E8C44A" stroke-width="1.5" fill="none" opacity=".5"/>
+        <!-- hat gem -->
+        <path d="M290 242 L298 252 L290 260 L282 252Z" fill="#3CCECE"/>
+        <path d="M290 244 L296 252 L290 258Z" fill="#7EEAEA" opacity=".6"/>
+        <circle cx="288" cy="250" r="2" fill="#fff" opacity=".7"/>
+        <!-- hat stars & dots -->
+        <path d="M270 198 L272.5 205 L280 207.5 L272.5 210 L270 217 L267.5 210 L260 207.5 L267.5 205Z" fill="#C4982A" opacity=".7"/>
+        <path d="M306 166 L307.8 171 L313 173 L307.8 175 L306 180 L304.2 175 L299 173 L304.2 171Z" fill="#C4982A" opacity=".6"/>
+        <circle cx="280" cy="156" r="2" fill="#C4982A" opacity=".5"/>
+        <circle cx="296" cy="130" r="1.5" fill="#C4982A" opacity=".4"/>
+        <circle cx="284" cy="112" r="1.8" fill="#C4982A" opacity=".45"/>
+        <!-- hat tip curl (slightly bent) -->
+        <path d="M290 68 C300 60 316 66 322 80 C328 94 322 106 310 104" stroke="url(#hatG)" stroke-width="16" stroke-linecap="round" fill="none"/>
+        <path d="M290 68 C300 60 316 66 322 80 C328 94 322 106 310 104" stroke="#1E3778" stroke-width="6" stroke-linecap="round" fill="none" opacity=".6"/>
+        <!-- energy from hat tip -->
+        <circle cx="318" cy="78" r="5" fill="#7EC8FF" opacity=".3" filter="url(#eGlow)"/>
+
+        <!-- ── AMBIENT MAGIC SWIRLS ── -->
+        <g opacity=".45" filter="url(#eGlow)">
+          <path d="M420 330 C436 310 440 340 426 360 C412 380 416 350 432 340" stroke="#4CB8FF" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M160 460 C144 440 146 470 162 480 C178 490 170 460 156 458" stroke="#4CB8FF" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <path d="M440 440 C450 426 460 440 452 456" stroke="#4CB8FF" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+        </g>
+        <circle cx="430" cy="316" r="2" fill="#7EC8FF" opacity=".4"/>
+        <circle cx="152" cy="446" r="2.2" fill="#7EC8FF" opacity=".35"/>
+        <circle cx="458" cy="454" r="1.8" fill="#7EC8FF" opacity=".3"/>
+      </svg>
+
+      <!-- floating software tiles — repositioned to complement the wizard's pose -->
+      <!-- Ae: upper-left, near wizard's raised magic hand -->
+      <div class="float-tile t-xl" data-depth="18" style="left:-6%;top:6%;--fd:6.5s;--rot:-6deg" aria-hidden="true" title="Adobe After Effects">
+        <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#1F1065"/><text x="32" y="42" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="26" fill="#9999FF">Ae</text></svg>
+      </div>
+      <!-- Pr: far upper-right, near the staff crystal -->
+      <div class="float-tile t-xl" data-depth="24" style="right:-4%;top:2%;--fd:7.4s;--rot:5deg" aria-hidden="true" title="Adobe Premiere Pro">
+        <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#1F1065"/><text x="32" y="42" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="26" fill="#EA77FF">Pr</text></svg>
+      </div>
+      <!-- Ps: mid-left, beside wizard's robe -->
+      <div class="float-tile t-lg" data-depth="12" style="left:-12%;top:42%;--fd:8s;--rot:4deg" aria-hidden="true" title="Adobe Photoshop">
+        <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="15" fill="#08243C"/><text x="32" y="42" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="26" fill="#31A8FF">Ps</text></svg>
+      </div>
+      <!-- DaVinci: mid-right, near staff arm -->
+      <div class="float-tile t-lg" data-depth="16" style="right:-8%;top:34%;--fd:6.9s;--rot:-5deg" aria-hidden="true" title="DaVinci Resolve">
+        <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#101828"/><g><ellipse cx="32" cy="19" rx="6.4" ry="13" fill="#F5C445" transform="rotate(0 32 32)"/><ellipse cx="32" cy="19" rx="6.4" ry="13" fill="#F2913D" transform="rotate(60 32 32)"/><ellipse cx="32" cy="19" rx="6.4" ry="13" fill="#DE5B64" transform="rotate(120 32 32)"/><ellipse cx="32" cy="19" rx="6.4" ry="13" fill="#9D6BE0" transform="rotate(180 32 32)"/><ellipse cx="32" cy="19" rx="6.4" ry="13" fill="#5B8DEF" transform="rotate(240 32 32)"/><ellipse cx="32" cy="19" rx="6.4" ry="13" fill="#4FB97F" transform="rotate(300 32 32)"/></g><circle cx="32" cy="32" r="6" fill="#101828"/></svg>
+      </div>
+
+      <!-- floating ui chips — repositioned so they don't overlap the wizard hat -->
+      <div class="float-chip chip-4k" data-depth="10" style="left:18%;top:0%;--fd:7.2s" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1152DF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        Export Ready · 4K
+      </div>
+      <div class="float-chip chip-wave" data-depth="14" style="right:6%;bottom:2%;--fd:6.8s" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1152DF" stroke-width="2.2" stroke-linecap="round"><path d="M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4"/></svg>
+        Motion Magic
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee">
+    <div class="marquee-track" id="marqueeTrack"></div>
+  </div>
+</div>
+<!-- ================= SERVICES ORBIT ================= -->
+<section class="section services-sec" id="services">
+  <div class="container">
+    <div class="center" data-reveal>
+      <span class="s-label">What We Do</span>
+      <h2 class="s-title">One Studio. Every Creative Service.</h2>
+      <p class="s-sub">Seven connected disciplines, one creative team — everything orbits around your brand's content goals.</p>
+    </div>
+    <div class="orbit-stage" id="orbitStage" data-reveal style="--rd:120ms">
+      <svg class="orbit-svg" id="orbitSvg" aria-hidden="true"></svg>
+      <div class="orbit-center" id="orbitCenter">
+        <a href="https://mexamotion.com" target="_blank" rel="noopener noreferrer" oncontextmenu="return false;" ondragstart="return false;" onmousedown="return false;" ontouchstart="return false;">
+          <span class="logo-protect" aria-hidden="true" style="width:64px;height:64px;border-radius:16px;"></span>
+        </a>
+        <h3>Mexa Motion</h3>
+        <p>Creative Content Studio</p>
+      </div>
+      <!-- orbit cards injected by script.js data (CONFIG.services) -->
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALUE BAND ================= -->
+<section class="section value-band" id="craft">
+  <div class="container">
+    <figure class="value-in" data-reveal>
+      <svg class="value-quote-mark" viewBox="0 0 96 72" fill="currentColor" aria-hidden="true"><path d="M38 0v22c-12 4-20 14-20 28 0 13 9 22 21 22s21-9 21-21c0-11-8-20-19-21 2-5 6-8 12-10V0H38Zm-38 0v22C-12 26-20 36-20 50c0 13 9 22 21 22s21-9 21-21c0-11-8-20-19-21 2-5 6-8 12-10V0H0Z" transform="translate(22,0) scale(.9)"/></svg>
+      <div>
+        <blockquote>We transform ideas into <em>cinematic visuals</em> that inspire, engage, and grow your brand.</blockquote>
+        <figcaption><i></i><span><b>About Mexa Motion</b> — premium quality, guaranteed results</span></figcaption>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= FEATURED SERVICES ================= -->
+<section class="section feat-sec" id="featured">
+  <div class="container">
+    <div class="center" data-reveal>
+      <span class="s-label">Featured Services</span>
+      <h2 class="s-title">Built for Creators, Brands &amp; Businesses</h2>
+      <p class="s-sub">Pick a single service or combine them into a complete content engine for your channel or brand.</p>
+    </div>
+    <div class="feat-grid" id="featGrid"><!-- cards injected from CONFIG.services --></div>
+  </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section class="section work-sec" id="work">
+  <div class="container">
+    <div class="center" data-reveal>
+      <span class="s-label">Portfolio</span>
+      <h2 class="s-title">Selected Work. Real Creativity.</h2>
+      <p class="s-sub">Explore selected video projects created for different formats, platforms, and creative goals.</p>
+    </div>
+
+    <div class="pf-tabs" data-reveal>
+      <div class="tab-shell" role="tablist" aria-label="Portfolio categories">
+        <button class="pf-tab" role="tab" id="tab-long" aria-selected="true" aria-controls="panel-long" data-cat="long">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.2l4.5 2.8-4.5 2.8z" fill="currentColor" stroke="none"/></svg>
+          Long-form</button>
+        <button class="pf-tab" role="tab" id="tab-short" aria-selected="false" aria-controls="panel-short" data-cat="short" tabindex="-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 18h2"/></svg>
+          Short-form</button>
+      </div>
+    </div>
+
+    <div class="pf-panel" role="tabpanel" id="panel-long" aria-labelledby="tab-long" data-reveal>
+      <div class="pf-grid long" id="gridLong"></div>
+    </div>
+    <div class="pf-panel" role="tabpanel" id="panel-short" aria-labelledby="tab-short" hidden data-reveal>
+      <div class="pf-grid short" id="gridShort"></div>
+    </div>
+
+    <p class="pf-note" data-reveal>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>
+      Preview videos are placeholders — client projects load here from the portfolio data in script.js.
+    </p>
+    <div class="pf-footer" data-reveal>
+      <a href="#work" class="btn btn-ghost" id="viewPortfolioBtn">View Full Portfolio
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE ================= -->
+<section class="section why-sec" id="about">
+  <div class="container why-grid">
+    <div class="why-left" data-reveal>
+      <span class="s-label">About Mexa Motion</span>
+      <h2 class="s-title">Creative That Respects the Craft</h2>
+      <p class="s-sub">Our team of professional video editors and motion designers creates high-quality content for YouTubers, businesses, agencies and brands — from engaging social media content to cinematic commercials that capture attention and drive results.</p>
+      <div class="why-quote">
+        Every project starts with one question: what should the viewer feel?
+        <span>The Mexa Motion mindset</span>
+      </div>
+    </div>
+    <div class="why-list" id="whyList"><!-- items injected from CONFIG.why --></div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="section process-sec" id="process">
+  <div class="container">
+    <div class="center" data-reveal>
+      <span class="s-label">How We Work</span>
+      <h2 class="s-title">A Simple, Transparent Process</h2>
+      <p class="s-sub">Four clear steps from first idea to final delivery — you always know where your project stands.</p>
+    </div>
+    <div class="steps" id="steps"><!-- steps injected from CONFIG.process --></div>
+  </div>
+</section>
+<!-- ================= REVIEWS ================= -->
+<section class="section reviews-sec" id="reviews">
+  <div class="container">
+    <div class="center" data-reveal>
+      <span class="s-label">Client Reviews</span>
+      <h2 class="s-title">What Working Together Feels Like</h2>
+    </div>
+    <div class="slider" data-reveal>
+      <div class="slides" id="slides" aria-live="polite"><!-- injected from CONFIG.reviews --></div>
+      <div class="slider-ctrl">
+        <button class="s-arrow" id="revPrev" aria-label="Previous review">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="s-dots" id="revDots" role="group" aria-label="Choose review"></div>
+        <button class="s-arrow" id="revNext" aria-label="Next review">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section class="section team-sec" id="team">
+  <div class="container">
+    <div class="center team-head" data-reveal>
+      <span class="s-label">Our Team</span>
+      <h2 class="s-title">Meet Our Team</h2>
+      <p class="s-sub">The creative minds behind Mexa Motion.</p>
+    </div>
+    <!-- founder card (prominent) — rendered from CONFIG.team.founder -->
+    <div class="tm-founder-wrap" id="teamSpot" data-reveal></div>
+    <!-- four team members — rendered from CONFIG.team.members -->
+    <div class="tm-grid" id="teamGrid" data-reveal style="--rd:120ms"></div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="cta-sec" id="book">
+  <div class="container">
+    <div class="cta-panel" data-reveal>
+      <div class="cta-mini" style="left:6%;top:18%;--fd:7.5s" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="currentColor" stroke="none"/></svg></div>
+      <div class="cta-mini" style="right:7%;top:26%;--fd:6.6s" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H4v5M20 9V4h-5M15 21h5v-5M4 15v5h5"/></svg></div>
+      <div class="cta-mini" style="left:10%;bottom:16%;--fd:8.2s" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.6L20 10l-6.1 1.4L12 17l-1.9-5.6L4 10l6.1-1.4z"/></svg></div>
+      <div class="cta-mini" style="right:11%;bottom:20%;--fd:7.1s" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18M8 3l2.5 4M14 3l2.5 4"/></svg></div>
+      <span class="cta-kicker">Let's Create Together</span>
+      <h2>Have a Project in Mind?</h2>
+      <p class="sub">Let's discuss your idea and find the right creative solution for your brand.</p>
+      <div class="cta-actions">
+        <a href="#book" class="btn btn-white" id="ctaBookBtn">Book Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#services" class="btn btn-outline-w" data-link="services">Explore Our Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="https://mexamotion.com" target="_blank" rel="noopener noreferrer" aria-label="Mexa Motion — back to top" oncontextmenu="return false;" ondragstart="return false;" onmousedown="return false;" ontouchstart="return false;">
+          <span class="logo-protect" aria-hidden="true" style="width:36px;height:36px;"></span>
+          <span>Mexa<em style="color:#7FA4FF">Motion</em></span><i class="dot"></i>
+        </a>
+        <p>Professional video editing, motion graphics and content solutions for creators, brands and businesses — premium quality, guaranteed results.</p>
+        <div class="foot-social" id="footSocial"></div>
+      </div>
+      <nav aria-label="Footer — explore">
+        <h4>Explore</h4>
+        <ul class="foot-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Portfolio</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#team">Our Team</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer — services" id="footServices">
+        <h4>Services</h4>
+        <ul class="foot-links"><!-- injected --></ul>
+      </nav>
+      <div>
+        <h4>Get in Touch</h4>
+        <ul class="foot-contact" id="footContact"></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Mexa Motion. All rights reserved.</span>
+      <span><a href="https://mexamotion.com" rel="noopener">mexamotion.com</a></span>
+    </div>
+  </div>
+</footer>
+<script>
+/* ============================================================
+   MEXA MOTION — CONFIG (edit everything here)
+   Replace placeholder URLs, videos, founder details & reviews
+   with the client's real, approved content.
+   ============================================================ */
+const CONFIG = {
+  links: {
+    book: '#book',                 // booking destination (e.g. Calendly URL or /book.html)
+    portfolioPage: '#work',        // link to the full standalone Portfolio page
+    serviceBase: '#services'       // base for service destinations (e.g. '/services.html')
+  },
+  contact: {
+    email: 'hello@mexamotion.com',
+    location: 'Remote — working worldwide'
+  },
+  socials: [],
+  /* ---- Seven studio services (used in orbit + featured grid) ---- */
+  services: [
+    { id:'video-editing', title:'Video Editing', sub:'YouTube & Social Media', url:'#services',
+      desc:'Clean, engaging edits for YouTube videos and social platforms — cuts, pacing, sound design and color that keep viewers watching.',
+      icon:'<rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.2h18M7.6 3.5l3 3.5M13.6 3.5l3 3.5"/>' },
+    { id:'motion-graphics', title:'Motion Graphics', sub:'Animation & Visual Effects', url:'#services',
+      desc:'Logo animations, kinetic type, lower thirds and VFX that give your content a polished, professional motion identity.',
+      icon:'<circle cx="12" cy="12" r="8.2" stroke-dasharray="3.5 3"/><path d="M8.5 13.5c1.6 2 5.4 2 7 0M12 6.5v3M10 8L12 6.5 14 8"/>' },
+    { id:'thumbnail-design', title:'Thumbnail Design', sub:'High-CTR Thumbnails', url:'#services',
+      desc:'Scroll-stopping thumbnail concepts designed around your content and audience, built to earn the click without clickbait.',
+      icon:'<rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M3.5 16.5l4.7-4.7 3.3 3.3 4-4 5 5"/>' },
+    { id:'brand-videos', title:'Brand Videos', sub:'Promotional & Corporate', url:'#services',
+      desc:'Promo films, company stories and campaign videos shaped around your brand voice — from concept to final master.',
+      icon:'<path d="M4 10v4c0 1 .8 2 2 2h2l7 4V4L8 8H6c-1.2 0-2 1-2 2Z"/><path d="M17.5 9.5c1.6 1.5 1.6 3.5 0 5"/>' },
+    { id:'youtube-content', title:'YouTube Content', sub:'Long & Short Form Videos', url:'#services',
+      desc:'Full production support for channels — long-form storytelling, shorts strategy, intros, edits and packaging that grows channels.',
+      icon:'<rect x="3" y="5.5" width="18" height="13" rx="3.5"/><path d="M10.3 9.4l4.5 2.6-4.5 2.6V9.4Z"/>' },
+    { id:'social-media-ads', title:'Social Media Ads', sub:'Reels, TikTok & More', url:'#services',
+      desc:'Vertical-first ad creatives for Reels, TikTok and Shorts — hooks, captions and pacing optimized for each platform.',
+      icon:'<rect x="7.5" y="3" width="9" height="18" rx="2.5"/><path d="M10.5 18h3"/><path d="M18.8 6.5l2-2M19.5 10h2M18.8 13.5l2 2"/>' },
+    { id:'product-videos', title:'Product Videos', sub:'Showcase Your Products', url:'#services',
+      desc:'Crisp product showcases, feature highlights and launch videos that make your product impossible to ignore.',
+      icon:'<path d="M12 3l7.5 4v10L12 21l-7.5-4V7L12 3Z"/><path d="M12 12l7.5-5M12 12L4.5 7M12 12v9"/>' }
+  ],
+  /* ---- Why choose points ---- */
+  why: [
+    { title:'Creative Thinking', desc:'Every edit starts with an idea, not a template. We look for the angle that makes your content feel fresh and unmistakably yours.',
+      icon:'<path d="M9.5 18h5M10.5 21h3"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.2 1.1 2.2h5c0-1 .3-1.6 1.1-2.2A6 6 0 0 0 12 3Z"/>' },
+    { title:'Attention to Detail', desc:'Frame-accurate cuts, clean audio, balanced color and typography-checked captions — the small things that separate good from great.',
+      icon:'<circle cx="11" cy="11" r="6.5"/><path d="M20.5 20.5L16 16"/><path d="M8.5 11.5l1.8 1.8 3.2-3.6"/>' },
+    { title:'Platform-Aware Content', desc:'A YouTube edit is not a TikTok edit. We shape aspect ratios, hooks, pacing and captions for the platform you publish on.',
+      icon:'<rect x="3" y="4.5" width="18" height="12" rx="2.5"/><path d="M8 21h8"/><path d="M10 8.8l3.5 2.2L10 13.2V8.8Z"/>' },
+    { title:'Collaborative Communication', desc:'Clear timelines, structured feedback rounds and honest updates. You always know what is happening with your project.',
+      icon:'<path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H9l-5 4V6.5Z"/><path d="M8 9.5h8M8 12.5h5"/>' },
+    { title:'Thoughtful Visual Storytelling', desc:'Rhythm, impact and pacing — we build edits that carry emotion and keep attention from the first second to the last.',
+      icon:'<path d="M12 20s-7-4.5-9-9c-1.2-2.8.6-6 3.8-6 2 0 3.4 1.1 4.2 2.6h2C13.8 6.1 15.2 5 17.2 5c3.2 0 5 3.2 3.8 6-2 4.5-9 9-9 9Z"/>' }
+  ],
+  /* ---- Process steps (verified from mexamotion.com) ---- */
+  process: [
+    { title:'Submit Footage',   desc:'Upload your raw files via our secure client portal and provide your creative brief.' },
+    { title:'Creative Editing', desc:'Our expert team cuts, grades, and adds motion graphics to bring your vision to life.' },
+    { title:'Review & Refine',  desc:'We send you a draft. You can leave frame-accurate comments for any revisions.' },
+    { title:'Final Delivery',   desc:'Receive your polished, high-resolution video, ready to be published.' }
+  ],
+  /* ============================================================
+     TEAM — edit names, roles, lines and photo paths here.
+     photo: '' shows a clean initials placeholder. To use a real
+     photo, save it under assets/team/ and set e.g.
+     photo:'assets/team/founder.webp'
+     (Names/photos on the live site's team list are template
+     placeholders, so they are kept editable here — replace with
+     the verified team details when available.)
+     ============================================================ */
+  team: {
+    founder: { name:'[Founder Name]', role:'Founder', line:'[One short line about what the founder does at Mexa Motion.]', photo:'' },
+    members: [
+      { name:'[Team Member One]',  role:'Senior Video Editor', desc:'', photo:'' },
+      { name:'[Team Member Two]',  role:'Video Editor',        desc:'', photo:'' },
+      { name:'[Team Member Three]',role:'Motion Designer',     desc:'', photo:'' },
+      { name:'[Team Member Four]', role:'Thumbnail Designer',  desc:'', photo:'' }
+    ]
+  },
+  /* ============================================================
+     PORTFOLIO — PLACEHOLDER PROJECTS (development preview)
+     Replace each item with client-approved work:
+       type 'youtube' → { youtube:'VIDEO_ID' }
+       type 'video'   → { src:'file.mp4', poster:'image.jpg' }
+     Posters load instantly; players load only on click.
+     ============================================================ */
+  portfolio: {
+    long: [
+      { title:'Studio Session — Full Edit Breakdown', tag:'Brand Film', dur:'0:33', type:'video',
+        poster:'https://images.pexels.com/videos/39681078/b-roll-freelancing-macbook-39681078.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200',
+        src:'https://videos.pexels.com/video-files/39681078/16920926_3840_2160_25fps.mp4' },
+      { title:'Timeline Craft — Narrative Cuts', tag:'Documentary Edit', dur:'0:15', type:'video',
+        poster:'https://images.pexels.com/videos/36036747/pexels-photo-36036747.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200',
+        src:'https://videos.pexels.com/video-files/36036747/15283259_1920_1080_60fps.mp4' },
+      { title:'Creator Episode — YouTube Edit', tag:'YouTube Video', dur:'0:27', type:'video',
+        poster:'https://images.pexels.com/videos/32549876/adobe-premiere-adobe-timeline-bangla-editing-bangla-tutorial-32549876.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200',
+        src:'https://videos.pexels.com/video-files/32549876/13880892_3840_2160_25fps.mp4' },
+      { title:'Edit Suite — Long-Form Story', tag:'Promotional', dur:'0:20', type:'video',
+        poster:'https://images.pexels.com/videos/1536321/free-video-1536321.jpg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200',
+        src:'https://videos.pexels.com/video-files/1536321/1536321-hd_1920_1080_30fps.mp4' }
+    ],
+    short: [
+      { title:'Creator Intro Reel', tag:'Reel', dur:'0:38', type:'video',
+        poster:'https://images.pexels.com/videos/8360178/blogger-challenge-content-creating-8360178.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630',
+        src:'https://videos.pexels.com/video-files/8360178/8360178-uhd_2160_4096_25fps.mp4' },
+      { title:'Food Channel Hook', tag:'Short', dur:'0:20', type:'video',
+        poster:'https://images.pexels.com/videos/12691874/adult-apple-blog-blogger-12691874.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630',
+        src:'https://videos.pexels.com/video-files/12691874/12691874-uhd_2160_3840_60fps.mp4' },
+      { title:'Talking-Head Promo', tag:'TikTok', dur:'0:10', type:'video',
+        poster:'https://images.pexels.com/videos/6325290/pexels-photo-6325290.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630',
+        src:'https://videos.pexels.com/video-files/6325290/6325290-uhd_2160_3840_24fps.mp4' },
+      { title:'Lifestyle GRWM Cut', tag:'Reel', dur:'0:10', type:'video',
+        poster:'https://images.pexels.com/videos/13929670/adult-beautiful-business-city-13929670.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=630',
+        src:'https://videos.pexels.com/video-files/13929670/13929670-uhd_2160_3840_24fps.mp4' }
+    ]
+  },
+  /* ============================================================
+     REVIEWS — SAMPLE TEXT ONLY (marked in UI).
+     Replace with genuine, client-approved testimonials.
+     ============================================================ */
+  reviews: [
+    { text:'“The edits finally match the standard I had in my head. The pacing, the sound, the little details — everything feels intentional and my content performs noticeably better.”',
+      name:'[Client Name]', role:'[YouTube Creator]', init:'CN' },
+    { text:'“Working with Mexa Motion feels like having an in-house creative team. Clear communication, fast turnarounds, and every thumbnail actually fits our brand.”',
+      name:'[Client Name]', role:'[Brand Manager]', init:'CN' },
+    { text:'“Our product launch video was delivered on time and looked far more premium than we expected. The whole process was structured and stress-free.”',
+      name:'[Client Name]', role:'[Startup Founder]', init:'CN' }
+  ],
+  marquee: ['Video Editing','Motion Graphics','Thumbnail Design','Brand Videos','YouTube Content','Social Media Ads','Product Videos','Color Grading']
+};
+/* ============================================================
+   END CONFIG — application logic below
+   ============================================================ */
+const $ = (s, c=document) => c.querySelector(s);
+const $$ = (s, c=document) => [...c.querySelectorAll(s)];
+const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const svgIcon = (paths, extra='') => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${extra}>${paths}</svg>`;
+
+/* ---------- header + progress ---------- */
+const header = $('#siteHeader'), progressBar = $('#progressBar');
+addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', scrollY > 12);
+  const h = document.documentElement;
+  progressBar.style.transform = `scaleX(${Math.min(1, scrollY / (h.scrollHeight - h.clientHeight || 1))})`;
+}, { passive: true });
+
+/* ---------- mobile navigation ---------- */
+const menuBtn = $('#menu-btn'), mobileNav = $('#mobileNav');
+function setMenu(open) {
+  menuBtn.setAttribute('aria-expanded', String(open));
+  menuBtn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  mobileNav.classList.toggle('open', open);
+}
+menuBtn.addEventListener('click', () => setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'));
+mobileNav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+addEventListener('keydown', e => { if (e.key === 'Escape' && mobileNav.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
+addEventListener('resize', () => { if (innerWidth > 1024) setMenu(false); });
+document.addEventListener('click', e => {
+  if (mobileNav.classList.contains('open') && !e.target.closest('.mobile-nav') && !e.target.closest('#menu-btn')) setMenu(false);
+});
+
+/* ---------- marquee ---------- */
+const star = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.1 6.2L21 10l-6.9 1.8L12 18l-2.1-6.2L3 10l6.9-1.8L12 2Z"/></svg>';
+$('#marqueeTrack').innerHTML = [...CONFIG.marquee, ...CONFIG.marquee]
+  .map(m => `<span class="mi">${star}${m}</span>`).join('');
+
+/* ---------- orbit service map ---------- */
+const orbitStage = $('#orbitStage'), orbitSvg = $('#orbitSvg'), orbitCenter = $('#orbitCenter');
+const ORBIT_POS = [[50,11.5],[82,26.3],[90.5,58.5],[67.8,84.5],[32.2,84.5],[9.5,58.5],[18,26.3]];
+const arrowMini = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+CONFIG.services.forEach((s, i) => {
+  const a = document.createElement('a');
+  a.className = 'orbit-card';
+  a.href = s.url;
+  a.setAttribute('aria-label', `${s.title} — ${s.sub}`);
+  a.style.left = ORBIT_POS[i][0] + '%';
+  a.style.top = ORBIT_POS[i][1] + '%';
+  a.innerHTML = `<div class="orbit-card-in">
+      <span class="oc-go">${arrowMini}</span>
+      <div class="oc-top"><span class="oc-ic">${svgIcon(s.icon)}</span><h4>${s.title}</h4></div>
+      <p>${s.sub}</p></div>`;
+  orbitStage.appendChild(a);
+});
+function drawOrbit() {
+  orbitSvg.innerHTML = '';
+  if (innerWidth <= 1024) return;
+  const sr = orbitStage.getBoundingClientRect();
+  orbitSvg.setAttribute('viewBox', `0 0 ${sr.width} ${sr.height}`);
+  const cr = orbitCenter.getBoundingClientRect();
+  const cx = cr.left + cr.width / 2 - sr.left, cy = cr.top + cr.height / 2 - sr.top;
+  const NS = 'http://www.w3.org/2000/svg';
+  const halo = document.createElementNS(NS, 'circle');
+  halo.setAttribute('cx', cx); halo.setAttribute('cy', cy);
+  halo.setAttribute('r', Math.min(sr.width, sr.height) * 0.315); halo.setAttribute('class', 'halo');
+  orbitSvg.appendChild(halo);
+  $$('.orbit-card', orbitStage).forEach((card, i) => {
+    const r = card.getBoundingClientRect();
+    const tx = r.left + r.width / 2 - sr.left, ty = r.top + r.height / 2 - sr.top;
+    const dx = tx - cx, dy = ty - cy, dist = Math.hypot(dx, dy);
+    const ux = dx / dist, uy = dy / dist;
+    const sTrim = Math.hypot(cr.width, cr.height) / 2 + 14;
+    const eTrim = Math.hypot(r.width, r.height) / 2 + 12;
+    const sx = cx + ux * sTrim, sy = cy + uy * sTrim;
+    const ex = tx - ux * eTrim, ey = ty - uy * eTrim;
+    const mx = (sx + ex) / 2, my = (sy + ey) / 2;
+    const bend = 26 * (i % 2 ? 1 : -1);
+    const qx = mx + -uy * bend, qy = my + ux * bend;
+    const p = document.createElementNS(NS, 'path');
+    p.setAttribute('d', `M ${sx} ${sy} Q ${qx} ${qy} ${ex} ${ey}`);
+    orbitSvg.appendChild(p);
+    const dot = document.createElementNS(NS, 'circle');
+    dot.setAttribute('cx', ex); dot.setAttribute('cy', ey); dot.setAttribute('r', 3); dot.setAttribute('class', 'dot');
+    orbitSvg.appendChild(dot);
+  });
+}
+let orbitRaf;
+addEventListener('resize', () => { cancelAnimationFrame(orbitRaf); orbitRaf = requestAnimationFrame(drawOrbit); });
+addEventListener('load', drawOrbit);
+drawOrbit();
+
+/* ---------- featured services ---------- */
+$('#featGrid').innerHTML = CONFIG.services.map((s, i) => `
+  <article class="feat-card" data-reveal style="--rd:${i * 60}ms">
+    <span class="fc-num">0${i + 1}</span>
+    <span class="fc-ic">${svgIcon(s.icon)}</span>
+    <h3>${s.title}</h3>
+    <p>${s.desc}</p>
+    <a class="fc-link" href="${s.url}" aria-label="Learn more about ${s.title}">Learn more ${arrowMini}</a>
+  </article>`).join('');
+
+/* ---------- why + process ---------- */
+$('#whyList').innerHTML = CONFIG.why.map((w, i) => `
+  <div class="why-item" data-reveal style="--rd:${i * 70}ms">
+    <span class="wnum">0${i + 1}</span>
+    <div><h3>${svgIcon(w.icon)}${w.title}</h3><p>${w.desc}</p></div>
+  </div>`).join('');
+$('#steps').innerHTML = CONFIG.process.map((s, i) => `
+  <div class="step" data-reveal style="--rd:${i * 90}ms">
+    <span class="sn">${i + 1}</span><h3>${s.title}</h3><p>${s.desc}</p>
+  </div>`).join('');
+
+/* ---------- portfolio ---------- */
+const playSvg = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>';
+function cardHTML(item) {
+  return `<img class="poster" src="${item.poster}" alt="${item.title} — project thumbnail" loading="lazy" decoding="async">
+    <span class="pf-shade" aria-hidden="true"></span>
+    <span class="pf-dur" aria-hidden="true">${item.dur}</span>
+    <span class="pf-play" aria-hidden="true"><i>${playSvg}</i></span>
+    <span class="pf-meta"><span class="tag">${item.tag}</span><span class="t">${item.title}</span><p>Placeholder preview</p></span>`;
+}
+function buildGrid(el, items, kind) {
+  el.innerHTML = '';
+  items.forEach((item, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = `pf-card ${kind}`;
+    b.setAttribute('aria-label', `Play project: ${item.title}`);
+    b.dataset.index = i;
+    b.innerHTML = cardHTML(item);
+    b.addEventListener('click', () => playCard(b, item));
+    el.appendChild(b);
+  });
+}
+buildGrid($('#gridLong'), CONFIG.portfolio.long, 'long');
+buildGrid($('#gridShort'), CONFIG.portfolio.short, 'short');
+let activeCard = null;
+function resetActive() {
+  if (!activeCard) return;
+  const { card, item } = activeCard;
+  card.classList.remove('pf-playing');
+  card.innerHTML = cardHTML(item);
+  activeCard = null;
+}
+function playCard(card, item) {
+  if (card.classList.contains('pf-playing')) return;
+  resetActive();
+  card.classList.add('pf-playing');
+  activeCard = { card, item };
+  if (item.type === 'youtube') {
+    const f = document.createElement('iframe');
+    f.src = `https://www.youtube-nocookie.com/embed/${item.youtube}?autoplay=1&rel=0`;
+    f.title = item.title;
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    f.allowFullscreen = true;
+    card.appendChild(f);
+  } else {
+    const v = document.createElement('video');
+    v.src = item.src; v.controls = true; v.autoplay = true; v.playsInline = true; v.preload = 'metadata';
+    v.setAttribute('aria-label', item.title);
+    card.appendChild(v);
+    v.addEventListener('error', () => {
+      card.innerHTML = `<span class="pf-meta"><span class="tag">${item.tag}</span>
+        <span class="t">${item.title}</span><p>Preview unavailable right now — please open the full portfolio.</p></span>`;
+      card.classList.remove('pf-playing'); activeCard = null;
+    }, { once: true });
+  }
+}
+/* tabs */
+const tabs = $$('.pf-tab');
+function selectTab(tab, focus = true) {
+  tabs.forEach(t => {
+    const on = t === tab;
+    t.setAttribute('aria-selected', String(on));
+    t.tabIndex = on ? 0 : -1;
+    $(`#panel-${t.dataset.cat}`).hidden = !on;
+  });
+  resetActive();
+  $$('.pf-panel:not([hidden]) [data-reveal], .pf-panel:not([hidden]) .pf-card').forEach(el => el.classList.add('in'));
+  if (focus) tab.focus();
+}
+tabs.forEach((t, i) => {
+  t.addEventListener('click', () => selectTab(t, false));
+  t.addEventListener('keydown', e => {
+    let n = null;
+    if (e.key === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+    if (e.key === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+    if (e.key === 'Home') n = tabs[0];
+    if (e.key === 'End') n = tabs[tabs.length - 1];
+    if (n) { e.preventDefault(); selectTab(n); }
+  });
+});
+$('#viewPortfolioBtn').href = CONFIG.links.portfolioPage;
+$('#ctaBookBtn').href = CONFIG.links.book;
+$$('[data-link="book"]').forEach(a => a.href = CONFIG.links.book);
+
+/* ---------- reviews carousel ---------- */
+const slidesEl = $('#slides'), dotsEl = $('#revDots');
+const starFull = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.7 5.7 6.3.8-4.6 4.3 1.2 6.2L12 16.4l-5.6 3.1 1.2-6.2L3 9l6.3-.8L12 2.5Z"/></svg>';
+slidesEl.innerHTML = CONFIG.reviews.map(r => `
+  <div class="slide"><div class="review-card">
+    <div class="stars" aria-label="Rated 5 out of 5">${starFull.repeat(5)}</div>
+    <blockquote>${r.text}</blockquote>
+    <div class="rev-who"><span class="ava" aria-hidden="true">${r.init}</span>
+      <span class="who-t"><b>${r.name}</b><small>${r.role}</small></span></div>
+    <span class="sample-tag">Sample review — replace with client testimonial</span>
+  </div></div>`).join('');
+dotsEl.innerHTML = CONFIG.reviews.map((_, i) =>
+  `<button class="s-dot" role="button" aria-label="Show review ${i + 1}" aria-current="${i === 0}"></button>`).join('');
+let rev = 0;
+const dots = $$('.s-dot', dotsEl);
+function goReview(i) {
+  rev = (i + CONFIG.reviews.length) % CONFIG.reviews.length;
+  slidesEl.style.transform = `translateX(-${rev * 100}%)`;
+  dots.forEach((d, k) => d.setAttribute('aria-current', String(k === rev)));
+}
+$('#revPrev').addEventListener('click', () => goReview(rev - 1));
+$('#revNext').addEventListener('click', () => goReview(rev + 1));
+dots.forEach((d, i) => d.addEventListener('click', () => goReview(i)));
+$('.slider').addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') goReview(rev - 1);
+  if (e.key === 'ArrowRight') goReview(rev + 1);
+});
+/* touch swipe */
+let tX = null;
+slidesEl.addEventListener('touchstart', e => tX = e.touches[0].clientX, { passive: true });
+slidesEl.addEventListener('touchend', e => {
+  if (tX === null) return;
+  const dx = e.changedTouches[0].clientX - tX;
+  if (Math.abs(dx) > 42) goReview(rev + (dx < 0 ? 1 : -1));
+  tX = null;
+}, { passive: true });
+
+/* ---------- footer social / contact ---------- */
+const socialsHTML = CONFIG.socials.map(s =>
+  `<a href="${s.href}" target="_blank" rel="noopener" aria-label="Mexa Motion on ${s.name}">${svgIcon(s.icon)}</a>`).join('');
+$('#footSocial').innerHTML = socialsHTML;
+
+/* ---------- team section ---------- */
+const initials = n => n.replace(/[\[\]]/g,'').split(/\s+/).filter(Boolean).map(w=>w[0]).slice(0,2).join('').toUpperCase() || 'MX';
+function tmPhoto(p){
+  return `<span class="tm-img${p.photo ? '' : ' noimg'}">`
+    + (p.photo ? `<img src="${p.photo}" alt="Portrait of ${p.name}, ${p.role} at Mexa Motion" loading="lazy" decoding="async" onerror="this.closest('.tm-img').classList.add('noimg');this.remove()">` : '')
+    + `<i class="tm-init" aria-hidden="true">${initials(p.name)}</i><em class="tm-tag" aria-hidden="true">[ PHOTO ]</em></span>`;
+}
+(function renderTeam(){
+  const f = CONFIG.team.founder;
+  $('#teamSpot').innerHTML = `<article class="tm-card tm-founder">${tmPhoto(f)}
+    <h3 class="tm-name">${f.name}</h3><p class="tm-role">${f.role}</p>
+    ${f.line ? `<p class="tm-line">${f.line}</p>` : ''}</article>`;
+  $('#teamGrid').innerHTML = CONFIG.team.members.map(m => `<article class="tm-card">${tmPhoto(m)}
+    <h3 class="tm-name">${m.name}</h3><p class="tm-role">${m.role}</p>
+    ${m.desc ? `<p class="tm-line">${m.desc}</p>` : ''}</article>`).join('');
+})();
+$('#footServices ul').innerHTML = CONFIG.services.map(s => `<li><a href="${s.url}">${s.title}</a></li>`).join('');
+$('#footContact').innerHTML = `
+  <li>${svgIcon('<path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/>')}<a href="mailto:${CONFIG.contact.email}">${CONFIG.contact.email}</a></li>
+  <li>${svgIcon('<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.3 3.8 5.2 3.8 8.5s-1.3 6.2-3.8 8.5c-2.5-2.3-3.8-5.2-3.8-8.5S9.5 5.8 12 3.5Z"/>')}<span>${CONFIG.contact.location}</span></li>
+  <li>${svgIcon('<rect x="4" y="5" width="16" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M4 10.5h16"/>')}<a href="${CONFIG.links.book}">Book a project call</a></li>`;
+$('#year').textContent = new Date().getFullYear();
+
+/* ---------- scrollspy ---------- */
+const spyMap = { home:'home', services:'services', craft:'services', featured:'services', work:'portfolio', reviews:'reviews', about:'about', team:'team' };
+const navLinks = $$('.main-nav a');
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const key = spyMap[en.target.id] || null;
+    navLinks.forEach(l => l.classList.toggle('active', l.dataset.link === key));
+  });
+}, { rootMargin: '-42% 0px -52% 0px' });
+$$('main [id]').forEach(el => { if (spyMap[el.id]) spy.observe(el); });
+
+/* ---------- reveal on scroll ---------- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+$$('[data-reveal]').forEach(el => io.observe(el));
+
+/* ---------- hero parallax (composes with float animation via `translate`) ---------- */
+const scene = $('#heroScene');
+if (scene && !prefersReduced && matchMedia('(pointer:fine)').matches) {
+  const items = $$('[data-depth]', scene);
+  let tx = 0, ty = 0, cx = 0, cy = 0;
+  scene.closest('.hero').addEventListener('mousemove', e => {
+    const r = scene.getBoundingClientRect();
+    tx = (e.clientX - (r.left + r.width / 2)) / r.width;
+    ty = (e.clientY - (r.top + r.height / 2)) / r.height;
+  });
+  scene.closest('.hero').addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+  (function tick() {
+    cx += (tx - cx) * 0.07; cy += (ty - cy) * 0.07;
+    if (Math.abs(cx) > 0.0005 || Math.abs(cy) > 0.0005)
+      items.forEach(el => {
+        const d = parseFloat(el.dataset.depth) || 10;
+        el.style.translate = `${(-cx * d).toFixed(2)}px ${(-cy * d).toFixed(2)}px`;
+      });
+    requestAnimationFrame(tick);
+  })();
+}
+</script>
+</body>
+</html>
