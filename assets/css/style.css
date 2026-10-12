@@ -235,7 +235,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--blue);
+    color: #082B85; /* very dark blue for AA contrast on white */
     margin: 0 0 1rem;
 }
 .eyebrow__dot {
@@ -775,27 +775,21 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     position: relative;
     overflow: hidden;
     padding-block: clamp(2rem, 1.2rem + 3.4vw, 4rem) clamp(2.25rem, 1.4rem + 3.4vw, 4.25rem);
-    background:
-        radial-gradient(780px 540px at 78% 16%, rgba(59, 130, 246, 0.30), transparent 66%),
-        radial-gradient(640px 480px at 6% 92%, rgba(17, 82, 223, 0.22), transparent 70%),
-        linear-gradient(180deg, #0A101E 0%, #0B1220 100%);
-    color: rgba(255, 255, 255, 0.74);
-    --ink: #FFFFFF;
-    --ink-2: rgba(255, 255, 255, 0.70);
-    --line: rgba(255, 255, 255, 0.12);
+    background: #FFFFFF;
+    color: var(--ink-2);
 }
 
 .hero__backdrop { position: absolute; inset: 0; pointer-events: none; }
-.hero__glow { position: absolute; border-radius: 50%; filter: blur(80px); }
-.hero__glow--a { width: 520px; height: 520px; right: -140px; top: -160px; background: rgba(59, 130, 246, 0.34); }
-.hero__glow--b { width: 420px; height: 420px; left: -170px; bottom: -190px; background: rgba(17, 82, 223, 0.32); }
-.hero__glow--c { width: 320px; height: 320px; left: 40%; top: 26%; background: rgba(107, 166, 255, 0.16); }
+.hero__glow { position: absolute; border-radius: 50%; filter: blur(90px); }
+.hero__glow--a { width: 520px; height: 520px; right: -140px; top: -160px; background: rgba(17, 82, 223, 0.06); }
+.hero__glow--b { width: 420px; height: 420px; left: -170px; bottom: -190px; background: rgba(17, 82, 223, 0.04); }
+.hero__glow--c { width: 320px; height: 320px; left: 40%; top: 26%; background: rgba(59, 130, 246, 0.04); }
 .hero__grid {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        linear-gradient(to right, rgba(17, 82, 223, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(17, 82, 223, 0.04) 1px, transparent 1px);
     background-size: 68px 68px;
     mask-image: radial-gradient(72% 62% at 50% 32%, #000 18%, transparent 78%);
     -webkit-mask-image: radial-gradient(72% 62% at 50% 32%, #000 18%, transparent 78%);
@@ -818,7 +812,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     max-width: 15ch;
 }
 .hero--home .text-gradient {
-    background: linear-gradient(100deg, #8FC0FF 0%, #BFD9FF 45%, #FFFFFF 100%);
+    background: linear-gradient(100deg, var(--blue) 0%, var(--blue-400) 55%, #6BA6FF 100%);
     -webkit-background-clip: text;
     background-clip: text;
 }
@@ -826,7 +820,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     font-size: var(--fs-lead);
     max-width: 46ch;
     margin-bottom: 1.75rem;
-    color: rgba(255, 255, 255, 0.76);
+    color: var(--ink-2);
 }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.15rem; }
 .hero__note {
@@ -834,21 +828,21 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     align-items: flex-start;
     gap: 0.5rem;
     font-size: var(--fs-sm);
-    color: rgba(255, 255, 255, 0.66);
+    color: var(--ink-3);
     margin-bottom: 1.5rem;
     max-width: 44ch;
 }
-.hero__note svg { flex: none; margin-top: 4px; color: var(--blue-300); }
+.hero__note svg { flex: none; margin-top: 4px; color: var(--blue); }
 
 .hero__pills { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 .hero__pills li {
     padding: 0.34rem 0.8rem;
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    border: 1px solid var(--line);
     border-radius: var(--radius-pill);
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--blue-50);
     font-size: var(--fs-xs);
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.78);
+    color: var(--ink-2);
 }
 
 /* ── Character + floating tool tiles ───────────────────────────────── */
@@ -868,7 +862,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     aspect-ratio: 1;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(107, 166, 255, 0.42) 0%, rgba(17, 82, 223, 0.20) 44%, transparent 72%);
+    background: radial-gradient(circle, rgba(17, 82, 223, 0.07) 0%, rgba(59, 130, 246, 0.04) 50%, transparent 72%);
     filter: blur(6px);
     pointer-events: none;
 }
@@ -878,7 +872,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 28px 46px rgba(2, 8, 23, 0.55));
+    filter: drop-shadow(0 24px 40px rgba(17, 82, 223, 0.10));
 }
 
 /* Tool tiles are positioned as a percentage of the stage, so the whole
@@ -886,7 +880,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 .hero__tool {
     position: absolute;
     width: clamp(38px, 12.5%, 64px);
-    filter: drop-shadow(0 12px 24px rgba(2, 8, 23, 0.6));
+    filter: drop-shadow(0 8px 18px rgba(17, 82, 223, 0.14));
     animation: toolFloat 6.5s var(--ease) infinite;
 }
 .hero__tool svg { display: block; width: 100%; height: auto; }
@@ -936,9 +930,19 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
    ========================================================================== */
 .diagram-section {
     overflow: hidden;
-    background:
-        radial-gradient(900px 520px at 50% 42%, rgba(17, 82, 223, 0.26), transparent 68%),
-        linear-gradient(180deg, #0B1220 0%, #101B31 100%);
+    background: #FFFFFF;
+    /* Override .section--dark white-text tokens so content reads on white */
+    color: var(--ink-2);
+    --ink: #101828;
+    --ink-2: #475467;
+    --line: #E4E7EC;
+}
+.diagram-section h1, .diagram-section h2, .diagram-section h3, .diagram-section h4 { color: var(--ink); }
+.diagram-section .section-lead { color: var(--ink-2); }
+.diagram-section .text-gradient {
+    background: linear-gradient(100deg, var(--blue) 0%, var(--blue-400) 55%, #6BA6FF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 .diagram-section .section-title { max-width: 18ch; margin-inline: auto; }
 .diagram-section .section-lead { max-width: 58ch; margin-inline: auto; }
@@ -972,7 +976,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     position: absolute;
     inset: auto -30% -60% -30%;
     height: 130%;
-    background: radial-gradient(50% 50% at 50% 50%, rgba(17, 82, 223, 0.16), transparent 70%);
+    background: radial-gradient(50% 50% at 50% 50%, rgba(17, 82, 223, 0.07), transparent 70%);
     pointer-events: none;
 }
 .diagram__hub-logo { position: relative; width: 76px; height: 76px; margin-bottom: 0.15rem; }
@@ -1025,20 +1029,19 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     gap: 0.85rem;
     height: 100%;
     padding: 1rem 1.05rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--line);
     border-radius: var(--radius);
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    color: #fff;
+    background: var(--white);
+    color: var(--ink);
     transition: background-color var(--t) var(--ease), border-color var(--t) var(--ease),
                 transform var(--t) var(--ease), box-shadow var(--t) var(--ease);
 }
 .diagram__card:hover, .diagram__card:focus-visible {
-    background: rgba(255, 255, 255, 0.11);
-    border-color: rgba(143, 192, 255, 0.6);
+    background: var(--blue-50);
+    border-color: var(--blue);
     transform: translateY(-3px);
-    box-shadow: 0 18px 38px -20px rgba(0, 0, 0, 0.9);
-    color: #fff;
+    box-shadow: var(--shadow-blue);
+    color: var(--ink);
 }
 .diagram__card-icon {
     flex: none;
@@ -1046,9 +1049,9 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     place-items: center;
     width: 42px; height: 42px;
     border-radius: 12px;
-    background: rgba(17, 82, 223, 0.28);
-    border: 1px solid rgba(143, 192, 255, 0.3);
-    color: var(--blue-300);
+    background: var(--blue-50);
+    border: 1px solid var(--blue-100);
+    color: var(--blue);
     transition: background-color var(--t) var(--ease), color var(--t) var(--ease);
 }
 .diagram__card:hover .diagram__card-icon { background: var(--blue); color: #fff; }
@@ -1057,13 +1060,13 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     font-family: var(--font-display);
     font-size: 1.02rem;
     font-weight: 600;
-    color: #fff;
+    color: var(--ink);
     letter-spacing: -0.01em;
     line-height: 1.25;
 }
-.diagram__card-tag { font-size: var(--fs-xs); color: rgba(255, 255, 255, 0.55); line-height: 1.4; }
-.diagram__card-arrow { flex: none; margin-left: auto; color: rgba(255, 255, 255, 0.35); transition: transform var(--t) var(--ease), color var(--t) var(--ease); }
-.diagram__card:hover .diagram__card-arrow { color: var(--blue-300); transform: translateX(4px); }
+.diagram__card-tag { font-size: var(--fs-xs); color: var(--ink-3); line-height: 1.4; }
+.diagram__card-arrow { flex: none; margin-left: auto; color: var(--ink-3); transition: transform var(--t) var(--ease), color var(--t) var(--ease); }
+.diagram__card:hover .diagram__card-arrow { color: var(--blue); transform: translateX(4px); }
 
 .diagram__hint {
     display: flex;
@@ -1072,11 +1075,11 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
     gap: 0.5rem;
     margin-top: clamp(1.75rem, 1.2rem + 1.5vw, 2.5rem);
     font-size: var(--fs-sm);
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--ink-3);
     text-align: center;
 }
-.diagram__hint svg { color: var(--blue-300); flex: none; }
-.diagram__hint a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.diagram__hint svg { color: var(--blue); flex: none; }
+.diagram__hint a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 
 @media (min-width: 560px) {
     .diagram__nodes { grid-template-columns: repeat(2, 1fr); }

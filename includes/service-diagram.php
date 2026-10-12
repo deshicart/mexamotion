@@ -31,7 +31,7 @@ $mm_connector_paths = [
     <div class="container">
 
         <header class="section-head section-head--center section-head--light">
-            <p class="eyebrow eyebrow--light">
+            <p class="eyebrow">
                 <span class="eyebrow__dot" aria-hidden="true"></span>
                 What We Do
             </p>

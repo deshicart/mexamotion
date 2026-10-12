@@ -151,12 +151,12 @@ require __DIR__ . '/includes/header.php';
 <!-- ===================================================================== -->
 <!-- 7. WHY CHOOSE MEXA MOTION                                           -->
 <!-- ===================================================================== -->
-<section class="section section--dark" aria-labelledby="why-title">
+<section class="section" aria-labelledby="why-title">
     <div class="container">
         <div class="why">
 
             <div class="why__intro" data-reveal="why">
-                <p class="eyebrow eyebrow--light">
+                <p class="eyebrow">
                     <span class="eyebrow__dot" aria-hidden="true"></span>
                     Why Mexa Motion
                 </p>
